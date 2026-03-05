@@ -1,0 +1,652 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact VECTOR | Connect & Stay Informed</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #94a3b8;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            line-height: 1.7;
+        }
+
+        .bg-gradient {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at top left, rgba(99,102,241,0.25), transparent 50%),
+                        radial-gradient(circle at bottom right, rgba(236,72,153,0.2), transparent 45%);
+            z-index: 0;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.08em;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav li {
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            min-width: 200px;
+            padding: 0.5rem 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu li a:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            padding-top: 120px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0 5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, var(--primary));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 24px;
+            padding: 2.5rem;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            color: var(--gray);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        label {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 16px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            background: rgba(15, 23, 42, 0.7);
+            color: var(--light);
+            font-size: 1rem;
+        }
+
+        textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 16px;
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.35);
+        }
+
+        .btn:hover { transform: translateY(-2px); }
+
+        .info-panel {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem;
+        }
+
+        .info-card small {
+            display: block;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.4rem;
+        }
+
+        .info-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .channels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .channel-card {
+            border: 1px dashed rgba(99, 102, 241, 0.4);
+            border-radius: 20px;
+            padding: 2rem;
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .channel-card h4 {
+            margin-bottom: 0.8rem;
+        }
+
+        .newsletter {
+            margin-top: 4rem;
+            background: linear-gradient(120deg, rgba(99,102,241,0.2), rgba(139,92,246,0.15));
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            border-radius: 28px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .newsletter h3 {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .newsletter-form {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            max-width: 320px;
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding: 2.5rem 0;
+            text-align: center;
+            color: var(--gray);
+            border-top: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: var(--light);
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: left 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+        }
+
+        .mobile-menu ul li {
+            margin: 2rem 0;
+        }
+
+        .mobile-menu ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu ul li a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            nav .container {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            nav ul { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <nav>
+        <div class="container">
+            <div class="logo">VECTOR</div>
+            <ul>
+                <li><a href="landing.html#home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publication.html">Publications</a></li>
+                <li><a href="training.html">Training & Development</a></li>
+                <li class="dropdown">
+                    <a href="people.html">People</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="people.html">Team Overview</a></li>
+                        <li><a href="sharmi-islam.html">Sharmi Islam</a></li>
+                        <li><a href="shfarhaan.html">Sazzad Hussain Farhaan</a></li>
+                    </ul>
+                </li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="landing.html#home">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publication.html">Publications</a></li>
+            <li><a href="training.html">Training & Development</a></li>
+            <li>
+                <a href="people.html">People</a>
+                <ul style="list-style: none; margin-top: 0.75rem; margin-left: 1rem; padding-left: 1rem; border-left: 1px solid rgba(99, 102, 241, 0.2); display: flex; flex-direction: column; gap: 0.6rem;">
+                    <li style="margin: 0;"><a href="sharmi-islam.html" style="font-size: 1.05rem; font-weight: 500; color: var(--gray);">Sharmi Islam</a></li>
+                    <li style="margin: 0;"><a href="shfarhaan.html" style="font-size: 1.05rem; font-weight: 500; color: var(--gray);">Sazzad Hussain Farhaan</a></li>
+                </ul>
+            </li>
+            <li><a href="join.html">Join Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <h1>Connect with VECTOR</h1>
+                <p>Reach out for collaborations, research opportunities, speaking engagements, or media inquiries. We value thoughtful partnerships that advance multimodal, human-centred AI.</p>
+            </section>
+
+            <section class="grid">
+                <div class="card">
+                    <h3>🔬 Research Inquiries</h3>
+                    <p>Email: <a href="mailto:vectorresearchlab@gmail.com" style="color: var(--primary); text-decoration: none;">vectorresearchlab@gmail.com</a><br>
+                       For research collaborations, partnerships, and academic inquiries.</p>
+                </div>
+                <div class="card">
+                    <h3>📚 Training & Development</h3>
+                    <p>Email: <a href="mailto:vectorresearchlab@gmail.com" style="color: var(--primary); text-decoration: none;">vectorresearchlab@gmail.com</a><br>
+                       Inquire about our training programs, mentorship, and research capacity building.</p>
+                </div>
+                <div class="card">
+                    <h3>🎯 Workshops & Seminars</h3>
+                    <p>Email: <a href="mailto:vectorresearchlab@gmail.com" style="color: var(--primary); text-decoration: none;">vectorresearchlab@gmail.com</a><br>
+                       Register for workshops or request a custom training session for your team.</p>
+                </div>
+                <div class="card">
+                    <h3>🚀 Portfolio Development</h3>
+                    <p>Email: <a href="mailto:vectorresearchlab@gmail.com" style="color: var(--primary); text-decoration: none;">vectorresearchlab@gmail.com</a><br>
+                       Get guidance on building your research profile and establishing your research brand.</p>
+                </div>
+            </section>
+
+            <section class="grid" style="margin-top: 2rem;">
+                <div class="card">
+                    <h3>💼 Careers & Recruitment</h3>
+                    <p>Email: <a href="mailto:vectorresearchlab@gmail.com" style="color: var(--primary); text-decoration: none;">vectorresearchlab@gmail.com</a><br>
+                       For research positions and employment opportunities.</p>
+                </div>
+                <div class="card">
+                    <h3>🎤 Media & Speaking</h3>
+                    <p>Email: <a href="mailto:vectorresearchlab@gmail.com" style="color: var(--primary); text-decoration: none;">vectorresearchlab@gmail.com</a><br>
+                       Press kits, interview requests, and event invitations.</p>
+                </div>
+                <div class="card">
+                    <h3>🤝 Collaboration Desk</h3>
+                    <p>Email: <a href="mailto:vectorresearchlab@gmail.com" style="color: var(--primary); text-decoration: none;">vectorresearchlab@gmail.com</a><br>
+                       Include a short abstract, team members, and timeline.</p>
+                </div>
+                <div class="card">
+                          <h3>📍 Location / Mailing</h3>
+                          <p>VECTOR Research Lab (virtual-first)<br>
+                              Mailing: vectorresearchlab@gmail.com<br>
+                              Dhanmondi 7A, Dhaka, Bangladesh</p>
+                </div>
+            </section>
+
+            <section class="contact-grid" style="margin-top: 4rem;">
+                <div class="card" style="padding: 3rem;">
+                    <h3 style="margin-bottom: 1.5rem;">Send Us a Message</h3>
+                    <form>
+                        <div>
+                            <label for="fullname">Full Name</label>
+                            <input id="fullname" type="text" placeholder="Dr. Ada Lovelace">
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input id="email" type="email" placeholder="name@organization.org">
+                        </div>
+                        <div>
+                            <label for="topic">Topic</label>
+                            <select id="topic">
+                                <option>Research Inquiries</option>
+                                <option>Training & Development</option>
+                                <option>Workshops & Seminars</option>
+                                <option>Portfolio Development</option>
+                                <option>Careers & Recruitment</option>
+                                <option>Media & Speaking</option>
+                                <option>Collaboration</option>
+                                <option>General Inquiry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message">Message</label>
+                            <textarea id="message" placeholder="How can we help?"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="info-panel">
+                    <div class="info-card">
+                        <small>Office Hours</small>
+                        <p>Virtual drop-ins every Wednesday<br>13:00–14:00 PT via request</p>
+                    </div>
+                    <div class="info-card">
+                        <small>Key Links</small>
+                        <p><a href="https://calendly.com/vectorlab/intro">Book a 20-minute intro →</a></p>
+                        <p><a href="https://github.com/vectorlab">GitHub</a> • <a href="https://scholar.google.com">Scholar</a></p>
+                    </div>
+                    <div class="info-card">
+                        <small>Emergency / Responsible Disclosure</small>
+                        <p>vectorresearchlab@gmail.com<br>PGP key available on request.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="channels">
+                <div class="channel-card">
+                    <h4>Slack Community</h4>
+                    <p>Join our open research workspace for dataset announcements, reproducibility sprints, and reading groups.</p>
+                    <a href="contact.html" style="color: var(--primary); text-decoration: none;">Request invite →</a>
+                </div>
+                <div class="channel-card">
+                    <h4>Office Hours & Clinics</h4>
+                    <p>Monthly sessions on interpretability, evaluation science, and responsible multimodal deployments.</p>
+                    <a href="contact.html" style="color: var(--primary); text-decoration: none;">See schedule →</a>
+                </div>
+                <div class="channel-card">
+                    <h4>Social Channels</h4>
+                    <p>Follow @vectorlab on Bluesky, Mastodon, and LinkedIn for updates, preprints, and calls for collaboration.</p>
+                    <a href="https://bsky.app/profile/vectorlab" style="color: var(--primary); text-decoration: none;">Follow updates →</a>
+                </div>
+            </section>
+
+            <section class="newsletter">
+                <h3>Subscribe to the VECTOR Dispatch</h3>
+                <p style="color: var(--gray); max-width: 720px; margin: 0 auto;">Quarterly digest featuring research highlights, datasets, open-source releases, and community opportunities.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="you@email.com">
+                    <button class="btn" style="padding: 1rem 2rem;">Subscribe</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 VECTOR Research Lab. All rights reserved.</p>
+            <p style="margin-top: 0.75rem; font-size: 0.95rem; color: var(--gray);">
+                <a href="landing.html#home" style="color: inherit; text-decoration: none; margin: 0 0.5rem;">Home</a>
+                <a href="about.html" style="color: inherit; text-decoration: none; margin: 0 0.5rem;">About</a>
+                <a href="research.html" style="color: inherit; text-decoration: none; margin: 0 0.5rem;">Research</a>
+                <a href="publication.html" style="color: inherit; text-decoration: none; margin: 0 0.5rem;">Publications</a>
+                <a href="training.html" style="color: inherit; text-decoration: none; margin: 0 0.5rem;">Training</a>
+                <a href="workshops.html" style="color: inherit; text-decoration: none; margin: 0 0.5rem;">Workshops</a>
+                <a href="people.html" style="color: inherit; text-decoration: none; margin: 0 0.5rem;">People</a>
+                <a href="join.html" style="color: inherit; text-decoration: none; margin: 0 0.5rem;">Join</a>
+                <a href="contact.html" style="color: inherit; text-decoration: none; margin: 0 0.5rem;">Contact</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close mobile menu when clicking on a link
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+
+
+
+
