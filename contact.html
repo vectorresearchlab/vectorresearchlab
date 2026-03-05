@@ -88,6 +88,52 @@
             width: 100%;
         }
 
+        nav li {
+            position: relative;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 12px;
+            min-width: 200px;
+            padding: 0.5rem 0;
+            list-style: none;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .dropdown-menu li a:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
         main {
             position: relative;
             z-index: 1;
@@ -383,7 +429,14 @@
                 <li><a href="research.html">Research</a></li>
                 <li><a href="publication.html">Publications</a></li>
                 <li><a href="training.html">Training & Development</a></li>
-                <li><a href="people.html">People</a></li>
+                <li class="dropdown">
+                    <a href="people.html">People</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="people.html">Team Overview</a></li>
+                        <li><a href="sharmi-islam.html">Sharmi Islam</a></li>
+                        <li><a href="shfarhaan.html">Sazzad Hussain Farhaan</a></li>
+                    </ul>
+                </li>
                 <li><a href="join.html">Join Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -404,6 +457,12 @@
             <li><a href="publication.html">Publications</a></li>
             <li><a href="training.html">Training & Development</a></li>
             <li><a href="people.html">People</a></li>
+            <li style="margin-left: 1rem; border-left: 1px solid rgba(99, 102, 241, 0.2); padding-left: 1rem;">
+                <a href="sharmi-islam.html">Sharmi Islam</a>
+            </li>
+            <li>
+                <a href="shfarhaan.html">Sazzad Hussain Farhaan</a>
+            </li>
             <li><a href="join.html">Join Us</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
