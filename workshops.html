@@ -369,6 +369,212 @@
             .workshop-meta {
                 grid-template-columns: 1fr;
             }
+
+            .event-content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                flex-direction: column;
+            }
+        }
+
+        /* ── Event Cards ── */
+        .events-section {
+            margin-bottom: 4rem;
+        }
+
+        .events-section-title {
+            font-size: 1.8rem;
+            margin: 3rem 0 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--primary);
+            color: var(--light);
+        }
+
+        .events-section-title.past-title {
+            border-bottom-color: rgba(100, 116, 139, 0.4);
+            color: var(--gray);
+        }
+
+        .event-card {
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .event-card.upcoming {
+            background: rgba(99, 102, 241, 0.08);
+            border: 2px solid rgba(99, 102, 241, 0.35);
+        }
+
+        .event-card.past {
+            background: rgba(100, 116, 139, 0.05);
+            border: 1px solid rgba(100, 116, 139, 0.2);
+        }
+
+        .event-status-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+        }
+
+        .badge-upcoming {
+            background: rgba(34, 197, 94, 0.12);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .badge-past {
+            background: rgba(100, 116, 139, 0.15);
+            color: var(--gray);
+            border: 1px solid rgba(100, 116, 139, 0.25);
+        }
+
+        .event-card h3 {
+            font-size: 1.5rem;
+            margin: 0.5rem 0 1.2rem;
+            color: var(--light);
+        }
+
+        .event-card.past h3 {
+            color: #94a3b8;
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            padding: 1.2rem 0;
+            border-top: 1px solid rgba(99, 102, 241, 0.15);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.15);
+            margin-bottom: 1.5rem;
+        }
+
+        .event-card.past .event-details {
+            border-color: rgba(100, 116, 139, 0.15);
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .detail-label {
+            font-size: 0.78rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: var(--light);
+            font-size: 0.95rem;
+        }
+
+        .event-card.past .detail-value {
+            color: #94a3b8;
+        }
+
+        .event-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .event-section-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .event-card.past .event-section-label {
+            color: var(--gray);
+        }
+
+        .event-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .event-list li {
+            padding: 0.35rem 0;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .pricing-grid {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+        }
+
+        .price-item {
+            flex: 1;
+            min-width: 140px;
+            background: rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+            border-radius: 10px;
+            padding: 1rem 1.2rem;
+            text-align: center;
+        }
+
+        .event-card.past .price-item {
+            background: rgba(100, 116, 139, 0.08);
+            border-color: rgba(100, 116, 139, 0.15);
+        }
+
+        .price-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 0.4rem;
+        }
+
+        .price-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .event-card.past .price-value {
+            color: var(--gray);
+        }
+
+        .testimonials-block {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(100, 116, 139, 0.15);
+        }
+
+        .testimonial-quote {
+            background: rgba(100, 116, 139, 0.07);
+            border-left: 3px solid rgba(100, 116, 139, 0.3);
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.8rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-style: normal;
+            font-size: 0.82rem;
+            color: #64748b;
+            margin-top: 0.4rem;
         }
     </style>
 </head>
@@ -405,10 +611,264 @@
                 <p>Focused training on publication strategy, research communication, and professional development</p>
             </div>
 
-            <div class="section">
-                <h2>Upcoming Workshops</h2>
-                <p>We offer workshops at various times to accommodate global participants. Contact us for current schedule and availability.</p>
-                <a href="contact.html" class="btn">Check Schedule & Register</a>
+            <!-- ── Events Section ── -->
+            <div class="events-section">
+
+                <h2 class="events-section-title">🗓️ Upcoming Events</h2>
+
+                <!-- Upcoming Event 1 — April 3 -->
+                <div class="event-card upcoming">
+                    <span class="event-status-badge badge-upcoming">● Upcoming</span>
+                    <h3>🎯 Research Mastery Bootcamp</h3>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span class="detail-label">📅 Date</span>
+                            <span class="detail-value">April 3, 2026</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">⏰ Time</span>
+                            <span class="detail-value">9:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">💻 Platform</span>
+                            <span class="detail-value">Zoom</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">👥 Seats</span>
+                            <span class="detail-value">20 only</span>
+                        </div>
+                    </div>
+
+                    <div class="event-content-grid">
+                        <div>
+                            <p class="event-section-label">What You'll Learn</p>
+                            <ul class="event-list">
+                                <li>✅ LinkedIn Profile থেকে Publication পর্যন্ত A to Z</li>
+                                <li>✅ Live Q&amp;A session</li>
+                                <li>✅ Real-time problem solving</li>
+                                <li>✅ Networking opportunities</li>
+                                <li>✅ Certificate প্রদান</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="event-section-label">Who Should Join</p>
+                            <ul class="event-list">
+                                <li>👉 Undergraduates যারা research শুরু করতে চান</li>
+                                <li>👉 Masters/PhD students যারা stuck</li>
+                                <li>👉 Young professionals চান academic career</li>
+                            </ul>
+                            <p class="event-section-label" style="margin-top:1.2rem;">What You'll Get</p>
+                            <ul class="event-list">
+                                <li>📖 Complete Research Guide (PDF)</li>
+                                <li>🔗 LinkedIn Optimization Template</li>
+                                <li>📊 Research Planning Worksheet</li>
+                                <li>🌐 Research Community Access</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pricing-grid">
+                        <div class="price-item">
+                            <div class="price-label">Regular Fee</div>
+                            <div class="price-value">৳500</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Early Bird (48 hrs)</div>
+                            <div class="price-value">৳300</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Group (5+ friends)</div>
+                            <div class="price-value">৳250 / person</div>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="btn">Register Now</a>
+                </div>
+
+                <!-- Upcoming Event 2 — April 10 -->
+                <div class="event-card upcoming">
+                    <span class="event-status-badge badge-upcoming">● Upcoming</span>
+                    <h3>🚀 Kaggle Notebook to Published Paper</h3>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span class="detail-label">📅 Date</span>
+                            <span class="detail-value">April 10, 2026</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">⏰ Time</span>
+                            <span class="detail-value">9:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">💻 Format</span>
+                            <span class="detail-value">Live online + hands-on</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">👥 Seats</span>
+                            <span class="detail-value">20 only</span>
+                        </div>
+                    </div>
+
+                    <div class="event-content-grid">
+                        <div>
+                            <p class="event-section-label">Workshop Modules</p>
+                            <ul class="event-list">
+                                <li>✅ Module 1: Academic potential assessment</li>
+                                <li>✅ Module 2: Research question &amp; hypothesis</li>
+                                <li>✅ Module 3: Academic structure (Intro → Discussion)</li>
+                                <li>✅ Module 4: Literature review strategy</li>
+                                <li>✅ Module 5: Journal selection &amp; submission</li>
+                                <li>✅ Module 6: Reviewer response &amp; revision</li>
+                                <li>🎁 Bonus: Personal project review + roadmap</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="event-section-label">Who Should Join</p>
+                            <ul class="event-list">
+                                <li>👨‍🎓 যাদের কাছে data analysis project আছে</li>
+                                <li>👩‍🎓 Academic career নিয়ে serious</li>
+                                <li>📊 যারা নিজের কাজ publish করতে চান</li>
+                                <li>🎯 Systematic approach শিখতে চান</li>
+                            </ul>
+                            <p class="event-section-label" style="margin-top:1.2rem;">Prerequisites</p>
+                            <ul class="event-list">
+                                <li>Basic research experience + eagerness to learn ✨</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="pricing-grid">
+                        <div class="price-item">
+                            <div class="price-label">Regular Fee</div>
+                            <div class="price-value">৳500</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Early Bird (48 hrs)</div>
+                            <div class="price-value">৳300</div>
+                        </div>
+                        <div class="price-item">
+                            <div class="price-label">Group (5+ friends)</div>
+                            <div class="price-value">৳250 / person</div>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="btn">Register Now</a>
+                </div>
+
+                <!-- ── Past Events ── -->
+                <h2 class="events-section-title past-title">✅ Past Events</h2>
+
+                <!-- Past Event 1 — Jan 10 -->
+                <div class="event-card past">
+                    <span class="event-status-badge badge-past">Completed</span>
+                    <h3>🎯 Research Mastery Bootcamp</h3>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span class="detail-label">📅 Date</span>
+                            <span class="detail-value">Jan 10, 2026</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">⏰ Time</span>
+                            <span class="detail-value">9:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">💻 Platform</span>
+                            <span class="detail-value">Zoom</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">👥 Participants</span>
+                            <span class="detail-value">20</span>
+                        </div>
+                    </div>
+
+                    <div class="event-content-grid">
+                        <div>
+                            <p class="event-section-label">What Was Covered</p>
+                            <ul class="event-list">
+                                <li>✅ LinkedIn Profile থেকে Publication পর্যন্ত A to Z</li>
+                                <li>✅ Live Q&amp;A session</li>
+                                <li>✅ Real-time problem solving</li>
+                                <li>✅ Networking opportunities</li>
+                                <li>✅ Certificate প্রদান</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="event-section-label">Who Attended</p>
+                            <ul class="event-list">
+                                <li>👉 Undergraduates যারা research শুরু করতে চান</li>
+                                <li>👉 Masters/PhD students যারা stuck</li>
+                                <li>👉 Young professionals চান academic career</li>
+                            </ul>
+                            <p class="event-section-label" style="margin-top:1.2rem;">Resources Provided</p>
+                            <ul class="event-list">
+                                <li>📖 Complete Research Guide (PDF)</li>
+                                <li>🔗 LinkedIn Optimization Template</li>
+                                <li>📊 Research Planning Worksheet</li>
+                                <li>🌐 Research Community Access</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Past Event 2 — Jan 20 -->
+                <div class="event-card past">
+                    <span class="event-status-badge badge-past">Completed</span>
+                    <h3>🚀 Kaggle Notebook to Published Paper</h3>
+                    <div class="event-details">
+                        <div class="detail-item">
+                            <span class="detail-label">📅 Date</span>
+                            <span class="detail-value">Jan 20, 2026</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">⏰ Time</span>
+                            <span class="detail-value">9:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">💻 Format</span>
+                            <span class="detail-value">Live online + hands-on</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">🎯 Target</span>
+                            <span class="detail-value">Bachelor to PhD (BD)</span>
+                        </div>
+                    </div>
+
+                    <div class="event-content-grid">
+                        <div>
+                            <p class="event-section-label">Modules Covered</p>
+                            <ul class="event-list">
+                                <li>✅ Module 1: Academic potential assessment</li>
+                                <li>✅ Module 2: Research question &amp; hypothesis</li>
+                                <li>✅ Module 3: Academic structure (Intro → Discussion)</li>
+                                <li>✅ Module 4: Literature review strategy</li>
+                                <li>✅ Module 5: Journal selection &amp; submission</li>
+                                <li>✅ Module 6: Reviewer response &amp; revision</li>
+                                <li>🎁 Bonus: Personal project review + roadmap</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="event-section-label">Who Attended</p>
+                            <ul class="event-list">
+                                <li>👨‍🎓 যাদের কাছে data analysis project আছে</li>
+                                <li>👩‍🎓 Academic career নিয়ে serious</li>
+                                <li>📊 যারা নিজের কাজ publish করতে চান</li>
+                                <li>🎯 Systematic approach শিখতে চান</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="testimonials-block">
+                        <p class="event-section-label">Participant Feedback</p>
+                        <div class="testimonial-quote">
+                            "6 weeks পরে আমার paper submitted। এখন reviewer response-র wait করছি।"
+                            <div class="testimonial-author">— Arif, BUET CSE</div>
+                        </div>
+                        <div class="testimonial-quote">
+                            "Workshop-র পরে বুঝলাম আমার thesis data দিয়ে 2টা journal paper হতে পারে।"
+                            <div class="testimonial-author">— Nusrat, DU Statistics</div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="workshop-category">
