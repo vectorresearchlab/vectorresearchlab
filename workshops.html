@@ -283,6 +283,27 @@
             transform: translateY(-2px);
         }
 
+        .btn-row {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .btn-row .btn {
+            margin-top: 0;
+        }
+
+        .btn-secondary {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            color: var(--light);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.2);
+        }
+
         .new-badge {
             display: inline-block;
             background: var(--accent);
@@ -682,7 +703,10 @@
                         </div>
                     </div>
 
-                    <a href="contact.html" class="btn">Register Now</a>
+                    <div class="btn-row">
+                        <a href="linkedin_workshop_form.html" class="btn">Register Now</a>
+                        <a href="linkedin_workshop_review.html" class="btn btn-secondary">Post-Workshop Review</a>
+                    </div>
                 </div>
 
                 <!-- Upcoming Event 2 — April 10 -->
@@ -751,7 +775,10 @@
                         </div>
                     </div>
 
-                    <a href="contact.html" class="btn">Register Now</a>
+                    <div class="btn-row">
+                        <a href="kaggle_workshop_form.html" class="btn">Register Now</a>
+                        <a href="kaggle_workshop_review.html" class="btn btn-secondary">Post-Workshop Review</a>
+                    </div>
                 </div>
 
                 <!-- ── Past Events ── -->
@@ -866,6 +893,10 @@
                             "Workshop-র পরে বুঝলাম আমার thesis data দিয়ে 2টা journal paper হতে পারে।"
                             <div class="testimonial-author">— Nusrat, DU Statistics</div>
                         </div>
+                    </div>
+
+                    <div class="btn-row">
+                        <a href="kaggle_workshop_review.html" class="btn btn-secondary">Submit Workshop Review</a>
                     </div>
                 </div>
 

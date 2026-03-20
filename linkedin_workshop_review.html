@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Workshop Review | LinkedIn Mastery Workshop | Vector Research Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --blue:#0A66C2; --blue-dark:#004182; --blue-light:#EBF3FC; --blue-mid:#185FA5;
+  --gold:#F5A623; --gold-light:#FEF6E7;
+  --green:#1a7f37; --green-light:#dcfce7;
+  --red:#dc2626; --red-light:#fee2e2;
+  --gray50:#f9fafb; --gray100:#f3f4f6; --gray200:#e5e7eb;
+  --gray400:#9ca3af; --gray600:#4b5563; --gray800:#1f2937; --gray900:#111827;
+  --radius:12px; --radius-sm:8px;
+  --shadow:0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md:0 4px 16px rgba(0,0,0,.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--gray50);color:var(--gray800);line-height:1.6;min-height:100vh;}
+
+/* ── HEADER ── */
+.header{background:#fff;border-bottom:1px solid var(--gray200);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+.header-logo{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--gray900);}
+.header-logo span{color:var(--blue);}
+.header-badge{font-size:11px;background:var(--blue-light);color:var(--blue-mid);padding:4px 12px;border-radius:100px;font-weight:500;}
+
+/* ── HERO BAND ── */
+.hero-band{background:linear-gradient(135deg,var(--blue-mid) 0%,var(--blue) 100%);color:#fff;padding:40px 24px 36px;text-align:center;}
+.hero-band .ws-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.7;margin-bottom:10px;}
+.hero-band h1{font-family:'Syne',sans-serif;font-size:clamp(22px,4vw,32px);font-weight:800;line-height:1.1;margin-bottom:10px;}
+.hero-band p{font-size:14px;opacity:.8;max-width:460px;margin:0 auto 20px;}
+.hero-band .meta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.meta-chip{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border-radius:100px;padding:5px 14px;font-size:12px;}
+
+/* ── MAIN ── */
+.main{max-width:620px;margin:0 auto;padding:32px 16px 80px;}
+
+/* ── PROGRESS ── */
+.progress-wrap{margin-bottom:28px;}
+.progress-bar{height:4px;background:var(--gray200);border-radius:100px;overflow:hidden;margin-bottom:8px;}
+.progress-fill{height:100%;background:var(--blue);border-radius:100px;transition:width .4s ease;}
+.progress-label{font-size:12px;color:var(--gray400);text-align:right;}
+
+/* ── CARD ── */
+.card{background:#fff;border:1px solid var(--gray200);border-radius:var(--radius);padding:28px;margin-bottom:16px;box-shadow:var(--shadow);}
+.card-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--gray900);margin-bottom:4px;display:flex;align-items:center;gap:8px;}
+.card-sub{font-size:13px;color:var(--gray400);margin-bottom:20px;}
+.step-num{width:24px;height:24px;border-radius:50%;background:var(--blue-light);color:var(--blue-mid);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;}
+
+/* ── FIELDS ── */
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:13px;font-weight:500;color:var(--gray600);margin-bottom:6px;}
+.field label .req{color:var(--red);margin-left:2px;}
+.field input,.field select,.field textarea{width:100%;padding:10px 14px;background:#fff;border:1px solid var(--gray200);border-radius:var(--radius-sm);font-size:14px;font-family:'DM Sans',sans-serif;color:var(--gray800);transition:border-color .2s,box-shadow .2s;}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(10,102,194,.1);}
+.field textarea{resize:vertical;min-height:90px;line-height:1.6;}
+.field select option{background:#fff;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.err{font-size:12px;color:var(--red);margin-top:4px;display:none;}
+.hint{font-size:12px;color:var(--gray400);margin-top:4px;}
+.wa-wrap{position:relative;}
+.wa-prefix{position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--gray400);font-weight:500;pointer-events:none;}
+.wa-input{padding-left:42px !important;}
+.wa-badge{display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#166534;border-radius:6px;padding:4px 10px;font-size:12px;font-weight:500;margin-top:6px;}
+
+/* ── STAR RATING ── */
+.stars{display:flex;gap:6px;margin-bottom:8px;}
+.star{font-size:32px;cursor:pointer;transition:transform .15s;color:#e5e7eb;line-height:1;user-select:none;}
+.star.active{color:var(--gold);}
+.star:hover{transform:scale(1.15);}
+.rating-label{font-size:13px;color:var(--gray400);min-height:20px;transition:color .2s;}
+.rating-label.filled{color:var(--blue-mid);font-weight:500;}
+
+/* ── RECOMMEND ── */
+.rec-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.rec-card{border:1.5px solid var(--gray200);border-radius:var(--radius-sm);padding:14px 10px;text-align:center;cursor:pointer;transition:all .15s;}
+.rec-card:hover{border-color:var(--blue);background:var(--blue-light);}
+.rec-card.selected{border-color:var(--blue);background:var(--blue-light);}
+.rec-card.selected.green{border-color:var(--green);background:var(--green-light);}
+.rec-card.selected.red{border-color:var(--red);background:var(--red-light);}
+.rec-icon{font-size:22px;margin-bottom:6px;}
+.rec-label{font-size:12px;font-weight:500;color:var(--gray600);}
+.rec-card.selected .rec-label{color:var(--gray800);}
+
+/* ── PERMISSION TOGGLE ── */
+.toggle-wrap{display:flex;align-items:flex-start;gap:14px;background:var(--gray50);border:1px solid var(--gray200);border-radius:var(--radius-sm);padding:14px 16px;cursor:pointer;transition:background .15s;}
+.toggle-wrap:hover{background:var(--blue-light);}
+.toggle-wrap.active{background:var(--blue-light);border-color:rgba(10,102,194,.3);}
+.toggle-box{width:20px;height:20px;border-radius:4px;border:2px solid var(--gray200);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;transition:all .15s;}
+.toggle-wrap.active .toggle-box{background:var(--blue);border-color:var(--blue);}
+.toggle-check{display:none;color:#fff;font-size:12px;font-weight:700;}
+.toggle-wrap.active .toggle-check{display:block;}
+.toggle-text{font-size:13px;color:var(--gray600);line-height:1.5;}
+.toggle-text strong{color:var(--gray800);display:block;margin-bottom:2px;}
+
+/* ── SUBMIT BTN ── */
+.submit-btn{width:100%;padding:14px;background:var(--blue);color:#fff;border:none;border-radius:var(--radius-sm);font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s,transform .1s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px;}
+.submit-btn:hover{background:var(--blue-dark);transform:translateY(-1px);}
+.submit-btn:active{transform:translateY(0);}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.spin{width:18px;height:18px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .6s linear infinite;display:none;}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* ── SUCCESS ── */
+.success-card{background:#fff;border:1px solid var(--gray200);border-radius:var(--radius);padding:40px 28px;text-align:center;box-shadow:var(--shadow-md);}
+.success-ring{width:64px;height:64px;border-radius:50%;background:var(--green-light);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+.success-ring svg path{stroke:var(--green);}
+.success-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--gray900);margin-bottom:8px;}
+.success-sub{font-size:14px;color:var(--gray400);margin-bottom:24px;}
+.summary-box{background:var(--gray50);border:1px solid var(--gray200);border-radius:var(--radius-sm);padding:16px 18px;text-align:left;margin-bottom:20px;}
+.summary-row{display:flex;justify-content:space-between;font-size:13px;padding:5px 0;border-bottom:1px solid var(--gray200);}
+.summary-row:last-child{border-bottom:none;}
+.summary-row span:first-child{color:var(--gray400);}
+.summary-row span:last-child{font-weight:500;text-align:right;max-width:65%;}
+.stars-display{color:var(--gold);font-size:18px;letter-spacing:2px;}
+.share-note{background:var(--blue-light);border-radius:var(--radius-sm);padding:12px 16px;font-size:13px;color:var(--blue-mid);}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--gray800);color:#fff;border-radius:10px;padding:12px 22px;font-size:13px;font-weight:500;z-index:999;transition:transform .3s,opacity .3s;opacity:0;pointer-events:none;}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+
+@media(max-width:520px){
+  .row2{grid-template-columns:1fr;}
+  .rec-grid{grid-template-columns:1fr;}
+  .card{padding:20px 16px;}
+  .hero-band{padding:28px 16px 24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-logo">Vector <span>Research</span> Lab</div>
+  <div class="header-badge">Post-Workshop Review</div>
+</header>
+
+<!-- HERO BAND -->
+<div class="hero-band">
+  <div class="ws-label">Workshop Feedback</div>
+  <h1>🔗 LinkedIn Mastery<br/>Workshop</h1>
+  <p>আপনার মতামত আমাদের পরবর্তী workshop আরও ভালো করতে সাহায্য করবে। মাত্র ২ মিনিট লাগবে!</p>
+  <div class="meta">
+    <div class="meta-chip">📅 April 3, 2026</div>
+    <div class="meta-chip">⏰ 9:00 PM</div>
+    <div class="meta-chip">💻 Live Online</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- FORM -->
+  <div id="form-view">
+
+    <!-- PROGRESS -->
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+      <div class="progress-label" id="progress-label">Step 1 of 4</div>
+    </div>
+
+    <!-- CARD 1: Personal info -->
+    <div class="card" id="card-1">
+      <div class="card-title"><div class="step-num">1</div> Your information</div>
+      <div class="card-sub">আপনার নাম ও contact details দিন — course materials পাঠানোর জন্য দরকার</div>
+
+      <div class="row2">
+        <div class="field">
+          <label>First name <span class="req">*</span></label>
+          <input type="text" id="r-fname" placeholder="Farida"/>
+          <div class="err" id="re-fname">Required</div>
+        </div>
+        <div class="field">
+          <label>Last name <span class="req">*</span></label>
+          <input type="text" id="r-lname" placeholder="Akter"/>
+          <div class="err" id="re-lname">Required</div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Email address <span class="req">*</span></label>
+        <input type="email" id="r-email" placeholder="you@university.edu"/>
+        <div class="err" id="re-email">Valid email required</div>
+      </div>
+
+      <!-- WHATSAPP — mandatory -->
+      <div class="field">
+        <label>
+          WhatsApp number <span class="req">*</span>
+          <span style="background:#dcfce7;color:#166534;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;margin-left:6px;">Course materials এখানে পাঠানো হবে</span>
+        </label>
+        <div class="wa-wrap">
+          <span class="wa-prefix">+880</span>
+          <input type="tel" id="r-whatsapp" class="wa-input" placeholder="1XXXXXXXXX" maxlength="11"/>
+        </div>
+        <div class="wa-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#166534"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.524 5.849L0 24l6.305-1.504A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.663-.5-5.193-1.373l-.371-.22-3.844.917.976-3.741-.242-.385A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          WhatsApp এ PDF, templates ও community link পাঠানো হবে
+        </div>
+        <div class="err" id="re-whatsapp">Valid WhatsApp number required (10-11 digits)</div>
+      </div>
+
+      <div class="row2">
+        <div class="field">
+          <label>Institution / University</label>
+          <input type="text" id="r-org" placeholder="BUET, DU, NSU..."/>
+        </div>
+        <div class="field">
+          <label>Academic level</label>
+          <select id="r-level">
+            <option value="">Select</option>
+            <option>Undergraduate</option>
+            <option>Postgraduate (Masters)</option>
+            <option>PhD / Research</option>
+            <option>Faculty / Lecturer</option>
+            <option>Young Professional</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: Rating -->
+    <div class="card" id="card-2">
+      <div class="card-title"><div class="step-num">2</div> Overall rating</div>
+      <div class="card-sub">Workshop টি কেমন লাগলো সামগ্রিকভাবে?</div>
+
+      <div class="stars" id="stars">
+        <span class="star" data-val="1" onclick="setRating(1)" onmouseover="hoverRating(1)" onmouseout="resetHover()">★</span>
+        <span class="star" data-val="2" onclick="setRating(2)" onmouseover="hoverRating(2)" onmouseout="resetHover()">★</span>
+        <span class="star" data-val="3" onclick="setRating(3)" onmouseover="hoverRating(3)" onmouseout="resetHover()">★</span>
+        <span class="star" data-val="4" onclick="setRating(4)" onmouseover="hoverRating(4)" onmouseout="resetHover()">★</span>
+        <span class="star" data-val="5" onclick="setRating(5)" onmouseover="hoverRating(5)" onmouseout="resetHover()">★</span>
+      </div>
+      <div class="rating-label" id="rating-label">একটি star বেছে নিন</div>
+      <div class="err" id="re-rating" style="margin-top:8px;">Please select a rating</div>
+    </div>
+
+    <!-- CARD 3: What learned + Recommend -->
+    <div class="card" id="card-3">
+      <div class="card-title"><div class="step-num">3</div> Your experience</div>
+      <div class="card-sub">Workshop থেকে আপনি কী পেলেন?</div>
+
+      <div class="field">
+        <label>What did you learn? <span class="req">*</span></label>
+        <textarea id="r-learned" placeholder="Workshop থেকে সবচেয়ে valuable যা শিখেছেন তা লিখুন..."></textarea>
+        <div class="err" id="re-learned">Please share what you learned</div>
+        <div class="hint" id="learned-count">0 / 50 characters minimum</div>
+      </div>
+
+      <div class="field">
+        <label>Would you recommend this workshop? <span class="req">*</span></label>
+        <div class="rec-grid">
+          <div class="rec-card green" id="rec-yes" onclick="setRec('yes')">
+            <div class="rec-icon">👍</div>
+            <div class="rec-label">Yes, definitely!</div>
+          </div>
+          <div class="rec-card" id="rec-maybe" onclick="setRec('maybe')">
+            <div class="rec-icon">🤔</div>
+            <div class="rec-label">Maybe</div>
+          </div>
+          <div class="rec-card red" id="rec-no" onclick="setRec('no')">
+            <div class="rec-icon">👎</div>
+            <div class="rec-label">Not really</div>
+          </div>
+        </div>
+        <div class="err" id="re-rec">Please select one</div>
+      </div>
+    </div>
+
+    <!-- CARD 4: Suggestions + Permission -->
+    <div class="card" id="card-4">
+      <div class="card-title"><div class="step-num">4</div> Feedback & permission</div>
+      <div class="card-sub">আপনার মতামত আমাদের improve করতে সাহায্য করে</div>
+
+      <div class="field">
+        <label>Suggestions for improvement</label>
+        <textarea id="r-suggestions" placeholder="পরবর্তী workshop এ কী যোগ করলে আরও ভালো হতো? কোনো বিষয় কি unclear ছিল? (optional)"></textarea>
+      </div>
+
+      <div class="field">
+        <label>Permission to use your review publicly</label>
+        <div class="toggle-wrap" id="permission-toggle" onclick="togglePermission()">
+          <div class="toggle-box"><span class="toggle-check">✓</span></div>
+          <div class="toggle-text">
+            <strong>হ্যাঁ, আমার review টি Vector Research Lab publicly share করতে পারবে</strong>
+            আপনার নাম ও review আমাদের website, social media বা future workshop promotion এ ব্যবহার করা হতে পারে।
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <button class="submit-btn" id="submit-btn" onclick="submitReview()">
+      <span id="submit-text">Submit review</span>
+      <div class="spin" id="submit-spin"></div>
+    </button>
+    <p style="text-align:center;font-size:12px;color:var(--gray400);margin-top:12px;">আপনার তথ্য সম্পূর্ণ নিরাপদ। শুধুমাত্র Vector Research Lab দেখতে পাবে।</p>
+  </div>
+
+  <!-- SUCCESS VIEW -->
+  <div id="success-view" style="display:none;">
+    <div class="success-card">
+      <div class="success-ring">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#1a7f37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="success-title">ধন্যবাদ আপনার review এর জন্য! 🎉</div>
+      <div class="success-sub">আপনার মতামত আমাদের পরবর্তী workshop আরও ভালো করতে সাহায্য করবে।</div>
+
+      <div class="summary-box">
+        <div style="font-size:11px;color:var(--gray400);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Your review summary</div>
+        <div class="summary-row"><span>Name</span><span id="s-name"></span></div>
+        <div class="summary-row"><span>WhatsApp</span><span id="s-wa"></span></div>
+        <div class="summary-row"><span>Rating</span><span id="s-rating" class="stars-display"></span></div>
+        <div class="summary-row"><span>Recommend</span><span id="s-rec"></span></div>
+        <div class="summary-row"><span>Public use</span><span id="s-perm"></span></div>
+      </div>
+
+      <div class="share-note">
+        📱 আপনার <strong>WhatsApp (+880 <span id="s-wa-num"></span>)</strong> এ শীঘ্রই course materials পাঠানো হবে — PDF, templates ও community link সহ।
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── CONFIG ──
+const SHEETS_URL = 'YOUR_REVIEW_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+// ── STATE ──
+let rating = 0;
+let recommend = null;
+let permissionGranted = false;
+
+// ── PROGRESS ──
+function updateProgress() {
+  const fields = [
+    document.getElementById('r-fname').value.trim(),
+    document.getElementById('r-email').value.trim(),
+    document.getElementById('r-whatsapp').value.trim(),
+    rating > 0 ? 'ok' : '',
+    document.getElementById('r-learned').value.trim(),
+    recommend || '',
+  ];
+  const filled = fields.filter(Boolean).length;
+  const pct = Math.round((filled / fields.length) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = pct + '% complete';
+}
+document.querySelectorAll('input, textarea, select').forEach(el => {
+  el.addEventListener('input', updateProgress);
+});
+
+// ── STAR RATING ──
+const ratingLabels = ['','😕 Poor','😐 Fair','🙂 Good','😊 Very good','🤩 Excellent!'];
+function setRating(val) {
+  rating = val;
+  renderStars(val);
+  const lbl = document.getElementById('rating-label');
+  lbl.textContent = ratingLabels[val];
+  lbl.className = 'rating-label filled';
+  document.getElementById('re-rating').style.display = 'none';
+  updateProgress();
+}
+function hoverRating(val) { renderStars(val, true); }
+function resetHover() { renderStars(rating); }
+function renderStars(val, hover) {
+  document.querySelectorAll('.star').forEach((s, i) => {
+    s.classList.toggle('active', i < val);
+    if (hover) s.style.transform = i < val ? 'scale(1.1)' : 'scale(1)';
+  });
+}
+
+// ── RECOMMEND ──
+function setRec(val) {
+  recommend = val;
+  ['yes','maybe','no'].forEach(k => {
+    const el = document.getElementById('rec-' + k);
+    el.classList.remove('selected','green','red');
+  });
+  const el = document.getElementById('rec-' + val);
+  el.classList.add('selected');
+  if (val === 'yes') el.classList.add('green');
+  if (val === 'no') el.classList.add('red');
+  document.getElementById('re-rec').style.display = 'none';
+  updateProgress();
+}
+
+// ── PERMISSION TOGGLE ──
+function togglePermission() {
+  permissionGranted = !permissionGranted;
+  document.getElementById('permission-toggle').classList.toggle('active', permissionGranted);
+}
+
+// ── CHAR COUNT ──
+document.getElementById('r-learned').addEventListener('input', function() {
+  const len = this.value.trim().length;
+  const el = document.getElementById('learned-count');
+  el.textContent = len < 50 ? (len + ' / 50 characters minimum') : '✓ ' + len + ' characters';
+  el.style.color = len >= 50 ? 'var(--green)' : 'var(--gray400)';
+});
+
+// ── VALIDATE ──
+function validate() {
+  let ok = true;
+  // name
+  ['fname','lname'].forEach(id => {
+    const v = document.getElementById('r-' + id).value.trim();
+    const e = document.getElementById('re-' + id);
+    if (!v) { e.style.display = 'block'; ok = false; } else e.style.display = 'none';
+  });
+  // email
+  const email = document.getElementById('r-email').value.trim();
+  const emailErr = document.getElementById('re-email');
+  if (!email || !email.includes('@')) { emailErr.style.display = 'block'; ok = false; } else emailErr.style.display = 'none';
+  // whatsapp — mandatory, 10-11 digits
+  const wa = document.getElementById('r-whatsapp').value.trim().replace(/\D/g,'');
+  const waErr = document.getElementById('re-whatsapp');
+  if (!wa || wa.length < 10 || wa.length > 11) { waErr.style.display = 'block'; ok = false; } else waErr.style.display = 'none';
+  // rating
+  if (!rating) { document.getElementById('re-rating').style.display = 'block'; ok = false; }
+  // learned — min 50 chars
+  const learned = document.getElementById('r-learned').value.trim();
+  const learnedErr = document.getElementById('re-learned');
+  if (learned.length < 50) {
+    learnedErr.textContent = learned.length === 0 ? 'Please share what you learned' : 'কমপক্ষে 50 characters লিখুন (' + learned.length + '/50)';
+    learnedErr.style.display = 'block'; ok = false;
+  } else learnedErr.style.display = 'none';
+  // recommend
+  if (!recommend) { document.getElementById('re-rec').style.display = 'block'; ok = false; }
+  return ok;
+}
+
+// ── SUBMIT ──
+async function submitReview() {
+  if (!validate()) {
+    // scroll to first error
+    const firstErr = document.querySelector('.err[style*="block"]');
+    if (firstErr) firstErr.scrollIntoView({ behavior:'smooth', block:'center' });
+    showToast('সব required fields পূরণ করুন');
+    return;
+  }
+
+  const fname = document.getElementById('r-fname').value.trim();
+  const lname = document.getElementById('r-lname').value.trim();
+  const email = document.getElementById('r-email').value.trim();
+  const wa = document.getElementById('r-whatsapp').value.trim().replace(/\D/g,'');
+  const org = document.getElementById('r-org').value.trim();
+  const level = document.getElementById('r-level').value;
+  const learned = document.getElementById('r-learned').value.trim();
+  const suggestions = document.getElementById('r-suggestions').value.trim();
+  const recLabels = { yes:'Yes, definitely!', maybe:'Maybe', no:'Not really' };
+  const starStr = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+  // update success view
+  document.getElementById('s-name').textContent = fname + ' ' + lname;
+  document.getElementById('s-wa').textContent = '+880 ' + wa;
+  document.getElementById('s-wa-num').textContent = wa;
+  document.getElementById('s-rating').textContent = starStr;
+  document.getElementById('s-rec').textContent = recLabels[recommend];
+  document.getElementById('s-perm').textContent = permissionGranted ? '✓ Allowed' : '✗ Not allowed';
+
+  const btn = document.getElementById('submit-btn');
+  const spin = document.getElementById('submit-spin');
+  const txt = document.getElementById('submit-text');
+  btn.disabled = true; spin.style.display = 'block'; txt.textContent = 'Submitting...';
+
+  const payload = {
+    timestamp: new Date().toISOString(),
+    name: fname + ' ' + lname,
+    email, whatsapp: '+880' + wa,
+    institution: org, level,
+    rating: rating + ' / 5 ' + starStr,
+    whatLearned: learned,
+    recommend: recLabels[recommend],
+    suggestions: suggestions || '—',
+    publicPermission: permissionGranted ? 'Yes' : 'No',
+    workshop: 'LinkedIn Mastery Workshop — April 3, 2026'
+  };
+
+  try {
+    await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', body: JSON.stringify(payload) });
+  } catch(e) { console.warn(e); }
+
+  btn.disabled = false; spin.style.display = 'none'; txt.textContent = 'Submit review';
+  document.getElementById('form-view').style.display = 'none';
+  document.getElementById('success-view').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── TOAST ──
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+</script>
+
+<!--
+╔══════════════════════════════════════════════════════════╗
+║       GOOGLE SHEETS SETUP FOR REVIEWS (5 min)            ║
+╠══════════════════════════════════════════════════════════╣
+║ 1. Create a NEW separate Google Sheet for reviews        ║
+║    Row 1 headers:                                        ║
+║    Timestamp | Name | Email | WhatsApp | Institution |   ║
+║    Level | Rating | What Learned | Recommend |           ║
+║    Suggestions | Public Permission | Workshop            ║
+║                                                          ║
+║ 2. Extensions → Apps Script → paste:                     ║
+║                                                          ║
+║  function doPost(e) {                                    ║
+║    try {                                                 ║
+║      const s = SpreadsheetApp                            ║
+║        .getActiveSpreadsheet().getActiveSheet();         ║
+║      const d = JSON.parse(e.postData.contents);          ║
+║      s.appendRow([d.timestamp, d.name, d.email,          ║
+║        d.whatsapp, d.institution, d.level,               ║
+║        d.rating, d.whatLearned, d.recommend,             ║
+║        d.suggestions, d.publicPermission,                ║
+║        d.workshop]);                                     ║
+║    } catch(err){Logger.log(err);}                        ║
+║    return ContentService                                 ║
+║      .createTextOutput('ok')                             ║
+║      .setMimeType(ContentService.MimeType.TEXT);         ║
+║  }                                                       ║
+║  function doGet(e){                                      ║
+║    return ContentService                                 ║
+║      .createTextOutput('ok')                             ║
+║      .setMimeType(ContentService.MimeType.TEXT);         ║
+║  }                                                       ║
+║                                                          ║
+║ 3. Deploy → New deployment → Web App                     ║
+║    Execute as: Me / Who has access: Anyone               ║
+║    → Copy URL                                            ║
+║                                                          ║
+║ 4. Replace YOUR_REVIEW_GOOGLE_APPS_SCRIPT_URL_HERE       ║
+║    with your URL (line ~260 in this file)                ║
+╚══════════════════════════════════════════════════════════╝
+-->
+
+</body>
+</html>

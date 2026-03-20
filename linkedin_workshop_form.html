@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta property="og:title" content="LinkedIn Mastery Workshop — Build Your Network, Build Your Future"/>
+<meta property="og:description" content="Learn LinkedIn A to Z — profile to publication. Live on Zoom, April 3, 2026. Only 20 seats!"/>
+<title>LinkedIn Mastery Workshop 2026 | Vector Research Lab</title>
+<style>
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #8b5cf6;
+  --accent: #ec4899;
+  --dark: #0f172a;
+  --dark-light: #1e293b;
+  --gray: #64748b;
+  --light: #f8fafc;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:var(--dark);color:var(--light);line-height:1.6;overflow-x:hidden;}
+
+/* ── TICKER ── */
+.ticker-wrap{background:var(--primary);padding:9px 0;overflow:hidden;}
+.ticker-track{display:flex;white-space:nowrap;animation:ticker 22s linear infinite;}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{font-size:12px;font-weight:600;letter-spacing:.05em;padding:0 28px;}
+.ticker-item::before{content:'✦';margin-right:28px;opacity:.6;}
+
+/* ── NAV ── */
+nav{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;border-bottom:0.5px solid rgba(255,255,255,0.08);position:sticky;top:0;background:rgba(15,23,42,0.95);backdrop-filter:blur(12px);z-index:100;}
+.nav-logo{font-size:14px;font-weight:700;letter-spacing:.04em;}
+.nav-logo span{color:var(--primary);}
+.nav-cta{background:var(--primary);color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:700;cursor:pointer;transition:background .2s;}
+.nav-cta:hover{background:var(--primary-dark);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 60px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 0%,rgba(99,102,241,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 35% at 80% 85%,rgba(139,92,246,.08) 0%,transparent 60%);pointer-events:none;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.08) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%);pointer-events:none;}
+.org-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.3);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#a5b4fc;margin-bottom:24px;}
+.org-badge-dot{width:6px;height:6px;border-radius:50%;background:#a5b4fc;animation:glow 2s ease infinite;}
+@keyframes glow{0%,100%{opacity:.5}50%{opacity:1}}
+.hero h1{font-size:clamp(34px,6vw,68px);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:20px;max-width:780px;}
+.hero h1 em{font-style:normal;color:var(--primary);}
+.hero h1 .acc{color:var(--secondary);}
+.hero-sub{font-size:clamp(14px,2vw,17px);color:var(--gray);max-width:500px;margin:0 auto 36px;font-weight:300;}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px;}
+.meta-pill{display:flex;align-items:center;gap:8px;background:var(--dark-light);border:1px solid rgba(255,255,255,0.08);border-radius:100px;padding:7px 16px;font-size:13px;}
+.meta-pill.hot{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.3);color:var(--secondary);font-weight:500;}
+
+/* price badge in hero */
+.price-reveal{display:inline-flex;align-items:center;gap:12px;background:var(--dark-light);border:1px solid rgba(255,255,255,0.08);border-radius:100px;padding:10px 24px;font-size:14px;margin-bottom:36px;}
+.price-tag-hero{font-size:22px;font-weight:800;color:var(--secondary);}
+.price-label-hero{font-size:12px;color:var(--gray);}
+.price-strike{text-decoration:line-through;color:var(--muted);font-size:14px;margin-left:4px;}
+
+/* CTA buttons */
+.cta-group{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.btn-hero-primary{background:var(--primary);color:#fff;border:none;border-radius:12px;padding:15px 34px;font-size:15px;font-weight:700;cursor:pointer;animation:pulse 2.5s ease infinite;transition:background .2s,transform .15s;text-decoration:none;display:inline-block;}
+.btn-hero-primary:hover{background:var(--primary-dark);transform:translateY(-2px);}
+.btn-hero-secondary{background:transparent;color:var(--light);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:15px 28px;font-size:15px;font-weight:600;cursor:pointer;transition:border-color .2s,transform .15s;text-decoration:none;display:inline-block;}
+.btn-hero-secondary:hover{border-color:var(--primary);transform:translateY(-2px);}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(99,102,241,.4)}50%{box-shadow:0 0 0 12px rgba(99,102,241,0)}}
+
+/* fade-up */
+.fu{opacity:0;transform:translateY(22px);animation:fadeUp .6s ease forwards;}
+.fu.d1{animation-delay:.1s}.fu.d2{animation-delay:.2s}.fu.d3{animation-delay:.3s}.fu.d4{animation-delay:.4s}.fu.d5{animation-delay:.5s}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTIONS ── */
+.sec{padding:72px 24px;max-width:940px;margin:0 auto;}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin-bottom:10px;}
+.sec-title{font-size:clamp(22px,4vw,36px);font-weight:800;line-height:1.1;margin-bottom:36px;}
+
+/* learn grid */
+.learn-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;}
+.learn-card{background:var(--dark-light);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px;}
+.li{font-size:20px;flex-shrink:0;margin-top:2px;}
+.lt{font-size:15px;font-weight:500;margin-bottom:3px;}
+.ls{font-size:13px;color:var(--gray);}
+
+/* who */
+.who-list{display:flex;flex-direction:column;gap:10px;}
+.who-item{display:flex;align-items:center;gap:14px;background:var(--dark-light);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px 20px;font-size:14px;}
+.who-item::before{content:'→';color:var(--primary);font-weight:700;font-size:16px;flex-shrink:0;}
+
+/* get */
+.get-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.get-card{background:var(--dark-light);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:18px;text-align:center;}
+.ge{font-size:26px;margin-bottom:8px;}
+.gt{font-size:13px;font-weight:500;}
+
+/* pricing */
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+.pc{background:var(--dark-light);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:26px 22px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;}
+.pc:hover{border-color:rgba(99,102,241,.4);transform:translateY(-3px);}
+.pc.feat{border-color:var(--secondary);background:linear-gradient(135deg,var(--dark-light) 0%,rgba(139,92,246,.06) 100%);}
+.pc.feat::before{content:'BEST VALUE';position:absolute;top:14px;right:-28px;background:var(--secondary);color:#fff;font-size:9px;font-weight:800;letter-spacing:.08em;padding:4px 36px;transform:rotate(45deg);}
+.pn{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gray);margin-bottom:8px;}
+.pa{font-size:36px;font-weight:800;margin-bottom:4px;}
+.pa sup{font-size:16px;font-weight:600;vertical-align:super;}
+.pd{font-size:12px;color:var(--gray);margin-bottom:18px;}
+.pb{width:100%;padding:11px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;border:none;background:var(--primary);color:#fff;transition:background .2s;}
+.pb:hover{background:var(--primary-dark);}
+.pc.feat .pb{background:var(--secondary);color:#fff;}
+.pc.feat .pb:hover{background:rgba(139,92,246,0.8);}
+
+/* divider */
+.div-line{height:0.5px;background:rgba(255,255,255,0.08);margin:0 24px;}
+
+/* ── REGISTRATION PAGES ── */
+#reg-section{padding:60px 24px 80px;max-width:640px;margin:0 auto;}
+.rpage{display:none;}
+.rpage.active{display:block;}
+
+/* landing chooser */
+.chooser{text-align:center;padding:20px 0;}
+.chooser h2{font-size:26px;font-weight:800;margin-bottom:8px;}
+.chooser p{font-size:14px;color:var(--gray);margin-bottom:32px;}
+.choose-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:480px;margin:0 auto;}
+.choose-card{background:var(--dark-light);border:1.5px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 20px;cursor:pointer;transition:all .2s;text-align:center;}
+.choose-card:hover{border-color:var(--primary);transform:translateY(-3px);}
+.choose-card.group-card{border-color:rgba(139,92,246,.5);background:linear-gradient(135deg,var(--dark-light) 0%,rgba(139,92,246,.05) 100%);}
+.choose-card.group-card:hover{border-color:var(--secondary);background:linear-gradient(135deg,var(--dark-light) 0%,rgba(139,92,246,.1) 100%);}
+.cc-icon{font-size:28px;margin-bottom:10px;}
+.cc-title{font-size:16px;font-weight:700;margin-bottom:4px;}
+.cc-price{font-size:13px;color:var(--gray);}
+.cc-price strong{color:var(--light);}
+.cc-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;margin-bottom:8px;}
+.badge-gold{background:rgba(139,92,246,.2);color:var(--secondary);border:0.5px solid rgba(139,92,246,.3);}
+.badge-blue{background:rgba(99,102,241,.2);color:#a5b4fc;border:0.5px solid rgba(99,102,241,.3);}
+
+/* form shared */
+.fcard{background:var(--dark-light);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:28px;margin-bottom:14px;}
+.step-bar{display:flex;align-items:center;gap:8px;margin-bottom:24px;}
+.st{display:flex;align-items:center;gap:6px;}
+.sd{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--gray);flex-shrink:0;}
+.st.active .sd{background:var(--primary);border-color:var(--primary);color:#fff;}
+.st.done .sd{background:#10b981;border-color:#10b981;color:#fff;}
+.st span{font-size:12px;color:var(--gray);}
+.sl{flex:1;height:0.5px;background:rgba(255,255,255,0.08);}
+.fh{margin-bottom:20px;}
+.fh h3{font-size:18px;font-weight:800;margin-bottom:4px;}
+.fh p{font-size:13px;color:var(--gray);}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:12px;color:var(--gray);margin-bottom:5px;font-weight:500;}
+.field input,.field select,.field textarea{width:100%;padding:10px 14px;background:var(--dark-light);border:1px solid rgba(255,255,255,.1);border-radius:8px;color:var(--light);font-size:14px;transition:border-color .2s;}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(99,102,241,.15);}
+.field select option{background:var(--dark-light);}
+.field textarea{resize:vertical;min-height:68px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.err{font-size:12px;color:#ef4444;margin-top:4px;display:none;}
+.btn-row{display:flex;justify-content:space-between;align-items:center;margin-top:20px;}
+.fbtn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:1px solid rgba(255,255,255,.12);background:transparent;color:var(--light);transition:background .15s;}
+.fbtn:hover{background:var(--dark-light);}
+.fbtn.primary{background:var(--primary);border-color:var(--primary);color:#fff;}
+.fbtn.primary:hover{background:var(--primary-dark);}
+.fbtn.back{border-color:transparent;color:var(--gray);padding-left:0;}
+.fbtn.back:hover{background:transparent;color:var(--light);}
+.sec-lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:10px;}
+.r12{border-radius:12px;}
+.r16{border-radius:16px;}
+
+/* amount box */
+.amt-box{background:var(--dark);border-radius:10px;padding:16px 18px;margin-bottom:18px;}
+.amt-main{font-size:30px;font-weight:800;margin:4px 0 10px;}
+.ar{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;color:var(--gray);}
+.ar.tot{border-top:0.5px solid rgba(255,255,255,.1);margin-top:6px;padding-top:8px;color:var(--text);font-weight:600;}
+
+/* payment methods */
+.method{display:flex;align-items:center;gap:12px;border:1.5px solid rgba(255,255,255,.1);border-radius:10px;padding:13px 16px;cursor:pointer;transition:all .15s;margin-bottom:10px;}
+.method:hover{border-color:rgba(10,102,194,.4);}
+.method.selected{border-color:var(--blue);background:rgba(10,102,194,.1);}
+.mradio{width:16px;height:16px;border-radius:50%;border:2px solid rgba(255,255,255,.3);flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.method.selected .mradio{border-color:var(--primary);background:var(--primary);}
+.method.selected .mradio::after{content:'';width:6px;height:6px;border-radius:50%;background:#fff;display:block;}
+.mlogo{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;}
+.mn{font-size:14px;font-weight:500;}
+.ms{font-size:12px;color:var(--gray);}
+.dbox{display:none;background:rgba(99,102,241,.04);border:0.5px solid rgba(99,102,241,.12);border-radius:8px;padding:14px 16px;margin-bottom:12px;}
+.dbox.vis{display:block;}
+.dnum{font-size:20px;font-weight:700;letter-spacing:1px;margin:4px 0 2px;}
+.dnote{font-size:12px;color:var(--gray);margin-bottom:10px;}
+.ref-tag{display:inline-block;background:rgba(10,102,194,.2);border:1px solid rgba(10,102,194,.35);border-radius:6px;padding:4px 12px;font-size:12px;font-weight:700;color:#58A6FF;margin-bottom:10px;letter-spacing:.04em;}
+
+/* group members */
+.mlist{display:flex;flex-direction:column;gap:8px;margin:10px 0;}
+.mrow{display:flex;align-items:center;gap:8px;}
+.mnum{width:22px;height:22px;border-radius:50%;background:rgba(10,102,194,.2);color:#58A6FF;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;flex-shrink:0;}
+.info-note{background:rgba(10,102,194,.1);border:1px solid rgba(10,102,194,.2);border-radius:8px;padding:10px 14px;font-size:13px;color:#58A6FF;margin-bottom:12px;}
+
+/* confirm */
+.sring{width:60px;height:60px;border-radius:50%;background:rgba(16,185,129,.15);border:2px solid #10b981;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+.crow{display:flex;justify-content:space-between;font-size:13px;padding:6px 0;border-bottom:0.5px solid rgba(255,255,255,0.08);}
+.crow:last-child{border-bottom:none;}
+.crow span:first-child{color:var(--gray);}
+.crow span:last-child{font-weight:500;text-align:right;max-width:60%;}
+
+
+/* toast */
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--dark-light);color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:12px 22px;font-size:13px;font-weight:500;z-index:999;transition:transform .3s,opacity .3s;opacity:0;pointer-events:none;}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+
+/* spinner */
+.spin{display:none;width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .6s linear infinite;}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* footer */
+footer{text-align:center;padding:36px 24px;border-top:0.5px solid rgba(255,255,255,0.08);color:var(--gray);font-size:13px;}
+footer a{color:#a5b4fc;text-decoration:none;}
+
+@media(max-width:560px){
+  nav{padding:12px 16px;}
+  .fcard{padding:20px 16px;}
+  .row2{grid-template-columns:1fr;}
+  .choose-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">মাত্র 20 seats</span>
+    <span class="ticker-item">April 3, 2026 — 9:00 PM</span>
+    <span class="ticker-item">Early Bird ৳300 (48 hrs only)</span>
+    <span class="ticker-item">Live on Zoom</span>
+    <span class="ticker-item">Certificate প্রদান</span>
+    <span class="ticker-item">Vector Research Lab</span>
+    <span class="ticker-item">মাত্র 20 seats</span>
+    <span class="ticker-item">April 3, 2026 — 9:00 PM</span>
+    <span class="ticker-item">Early Bird ৳300 (48 hrs only)</span>
+    <span class="ticker-item">Live on Zoom</span>
+    <span class="ticker-item">Certificate প্রদান</span>
+    <span class="ticker-item">Vector Research Lab</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Vector <span>Research</span> Lab</div>
+  <button class="nav-cta" onclick="document.getElementById('reg-section').scrollIntoView({behavior:'smooth'})">Register Now</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="org-badge fu"><div class="org-badge-dot"></div>Vector Research Lab</div>
+  <h1 class="fu d1">Master <em>LinkedIn</em> —<br/>Build Your <span class="acc">Network,</span><br/>Own Your Future</h1>
+  <p class="hero-sub fu d2">Profile থেকে Publication পর্যন্ত — এক সেশনে LinkedIn এর সব কিছু শিখুন। Live Q&A, real-time problem solving এবং certificate সহ।</p>
+  <div class="hero-meta fu d3">
+    <div class="meta-pill">📅 April 3, 2026 — 9:00 PM</div>
+    <div class="meta-pill">💻 Live on Zoom</div>
+    <div class="meta-pill hot">🔥 মাত্র 20 seats!</div>
+  </div>
+  <div class="price-reveal fu d4">
+    <div>
+      <div class="price-label-hero" id="hero-price-label">Current fee</div>
+      <div style="display:flex;align-items:baseline;gap:8px;">
+        <div class="price-tag-hero" id="hero-price-amt">৳—</div>
+        <div class="price-strike" id="hero-price-strike"></div>
+      </div>
+    </div>
+    <div style="width:1px;height:36px;background:var(--border);"></div>
+    <div style="font-size:12px;color:var(--muted);" id="hero-price-note">Calculating...</div>
+  </div>
+  <div class="cta-group fu d5">
+    <button class="btn-hero-primary" onclick="goToReg('individual')">Register as Individual</button>
+    <button class="btn-hero-secondary" onclick="goToReg('group')" style="border-color:rgba(245,166,35,.4);color:var(--gold);">👥 Group এ Register — ৳250 সাশ্রয়!</button>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- WHAT YOU'LL LEARN -->
+<section class="sec">
+  <div class="sec-label">Curriculum</div>
+  <div class="sec-title">What you'll learn</div>
+  <div class="learn-grid">
+    <div class="learn-card"><div class="li">🔷</div><div><div class="lt">LinkedIn A to Z</div><div class="ls">Profile setup থেকে publication পর্যন্ত সম্পূর্ণ গাইড</div></div></div>
+    <div class="learn-card"><div class="li">🎙️</div><div><div class="lt">Live Q&A Session</div><div class="ls">আপনার প্রশ্ন সরাসরি expert এর কাছে</div></div></div>
+    <div class="learn-card"><div class="li">⚡</div><div><div class="lt">Real-time Problem Solving</div><div class="ls">আপনার LinkedIn সমস্যা live সমাধান</div></div></div>
+    <div class="learn-card"><div class="li">🤝</div><div><div class="lt">Networking Opportunities</div><div class="ls">Researchers ও professionals এর সাথে connect</div></div></div>
+    <div class="learn-card"><div class="li">🏅</div><div><div class="lt">Certificate প্রদান</div><div class="ls">LinkedIn এ যোগ করার মতো সার্টিফিকেট</div></div></div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- WHO -->
+<section class="sec">
+  <div class="sec-label">Audience</div>
+  <div class="sec-title">কারা যোগ দেবেন?</div>
+  <div class="who-list">
+    <div class="who-item">Undergraduates যারা research শুরু করতে চান এবং academic presence গড়তে চান</div>
+    <div class="who-item">Masters / PhD students যারা academic career এ stuck আছেন</div>
+    <div class="who-item">Young professionals যারা research community তে যোগ দিতে চান</div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- WHAT YOU GET -->
+<section class="sec">
+  <div class="sec-label">Bonuses</div>
+  <div class="sec-title">What you'll get</div>
+  <div class="get-grid">
+    <div class="get-card"><div class="ge">📖</div><div class="gt">Complete Research Guide (PDF)</div></div>
+    <div class="get-card"><div class="ge">🔗</div><div class="gt">LinkedIn Optimization Template</div></div>
+    <div class="get-card"><div class="ge">📊</div><div class="gt">Research Planning Worksheet</div></div>
+    <div class="get-card"><div class="ge">🌐</div><div class="gt">Research Community Access</div></div>
+  </div>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ── REGISTRATION SECTION ── -->
+<div id="reg-section">
+
+  <!-- PAGE: CHOOSER -->
+  <div class="rpage active" id="rp-choose">
+    <div class="chooser">
+      <div class="sec-label" style="text-align:center;">Registration</div>
+      <h2>Secure your seat</h2>
+      <p>নিচ থেকে আপনার registration type বেছে নিন</p>
+      <div class="choose-grid">
+        <div class="choose-card" onclick="goToReg('individual')">
+          <div class="cc-icon">🧑‍💻</div>
+          <div id="ind-badge-chooser" class="cc-badge badge-gold">Early Bird</div>
+          <div class="cc-title">Individual</div>
+          <div class="cc-price">Fee: <strong id="ind-price-chooser">৳—</strong></div>
+          <div style="font-size:12px;color:var(--muted);margin-top:6px;">Single registration</div>
+        </div>
+        <div class="choose-card group-card" onclick="goToReg('group')">
+          <div class="cc-icon">👥</div>
+          <div class="cc-badge badge-gold" style="background:rgba(245,166,35,.2);color:var(--gold);border:0.5px solid rgba(245,166,35,.3);">🔥 সবচেয়ে সাশ্রয়ী</div>
+          <div class="cc-title">Group (5 জন)</div>
+          <div class="cc-price" style="margin-top:6px;">
+            <span style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--gold);">৳250</span>
+            <span style="color:var(--muted);font-size:12px;"> / জন</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;margin-top:4px;">
+            <span style="font-size:12px;color:var(--muted);text-decoration:line-through;">৳300/জন</span>
+            <span style="font-size:11px;background:rgba(35,134,54,.2);color:#3FB950;border-radius:4px;padding:2px 7px;font-weight:700;">৳50 সস্তা</span>
+          </div>
+          <div style="margin-top:8px;background:rgba(245,166,35,.1);border:0.5px solid rgba(245,166,35,.25);border-radius:6px;padding:5px 10px;font-size:12px;color:var(--gold);font-weight:600;">
+            মোট সাশ্রয় ৳250 — একসাথে মাত্র ৳1,250!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- PAGE: INDIVIDUAL — STEP 1 (details)    -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="rpage" id="rp-ind-details">
+    <div class="fcard">
+      <div class="step-bar">
+        <div class="st active"><div class="sd">1</div><span>Your details</span></div>
+        <div class="sl"></div>
+        <div class="st"><div class="sd">2</div><span>Payment</span></div>
+        <div class="sl"></div>
+        <div class="st"><div class="sd">3</div><span>Done</span></div>
+      </div>
+      <div class="fh">
+        <h3>Individual registration</h3>
+        <p id="ind-fee-note">Loading fee...</p>
+      </div>
+
+      <div class="row2">
+        <div class="field"><label>First name</label><input type="text" id="i-fname" placeholder="e.g. Farida"/><div class="err" id="ie-fname">Required</div></div>
+        <div class="field"><label>Last name</label><input type="text" id="i-lname" placeholder="e.g. Akter"/><div class="err" id="ie-lname">Required</div></div>
+      </div>
+      <div class="field"><label>Email address</label><input type="email" id="i-email" placeholder="you@university.edu"/><div class="err" id="ie-email">Valid email required</div></div>
+      <div class="row2">
+        <div class="field"><label>Phone number</label><input type="tel" id="i-phone" placeholder="01XXXXXXXXX"/><div class="err" id="ie-phone">Required</div></div>
+        <div class="field"><label>Institution / University</label><input type="text" id="i-org" placeholder="BUET, DU, NSU..."/><div class="err" id="ie-org">Required</div></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>Department</label><input type="text" id="i-dept" placeholder="e.g. CSE, EEE"/></div>
+        <div class="field"><label>Academic level</label>
+          <select id="i-level">
+            <option value="">Select</option>
+            <option>Undergraduate</option>
+            <option>Postgraduate (Masters)</option>
+            <option>PhD / Research</option>
+            <option>Faculty / Lecturer</option>
+            <option>Young Professional</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label>Questions / special requirements</label><textarea id="i-notes" placeholder="Optional"></textarea></div>
+    </div>
+    <div class="btn-row">
+      <button class="fbtn back" onclick="showRPage('rp-choose')">← Back</button>
+      <button class="fbtn primary" onclick="indGoToPayment()">Continue to payment →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <!-- PAGE: INDIVIDUAL — STEP 2 (payment) -->
+  <!-- ═══════════════════════════════════ -->
+  <div class="rpage" id="rp-ind-payment">
+    <div class="fcard">
+      <div class="step-bar">
+        <div class="st done"><div class="sd">✓</div><span>Your details</span></div>
+        <div class="sl"></div>
+        <div class="st active"><div class="sd">2</div><span>Payment</span></div>
+        <div class="sl"></div>
+        <div class="st"><div class="sd">3</div><span>Done</span></div>
+      </div>
+      <div class="fh">
+        <h3>Payment</h3>
+        <p id="ind-pay-subname"></p>
+      </div>
+
+      <div class="amt-box">
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;">Amount due</div>
+        <div class="amt-main" id="ind-pay-amt">৳—</div>
+        <div style="border-top:0.5px solid rgba(255,255,255,.1);padding-top:10px;">
+          <div class="ar"><span id="ind-pay-type-label">Registration fee</span><span id="ind-pay-fee">৳—</span></div>
+          <div class="ar"><span>Processing fee</span><span>৳0</span></div>
+          <div class="ar tot"><span>Total</span><span id="ind-pay-total">৳—</span></div>
+        </div>
+      </div>
+
+      <div class="sec-lbl">Select payment method</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;background:rgba(248,81,73,.08);border:0.5px solid rgba(248,81,73,.2);border-radius:8px;padding:10px 14px;">⚠️ Payment করার পর Transaction ID ছাড়া registration confirm হবে না।</div>
+      <div class="method" id="im-bkash" onclick="selIndMethod('bkash')">
+        <div class="mradio"></div>
+        <div class="mlogo" style="background:#D81B60;">bK</div>
+        <div><div class="mn">bKash</div><div class="ms">Mobile banking</div></div>
+        <span style="margin-left:auto;font-size:10px;padding:2px 8px;border-radius:20px;background:rgba(10,102,194,.2);color:#58A6FF;font-weight:700;">Popular</span>
+      </div>
+      <div class="dbox" id="id-bkash">
+        <div style="font-size:11px;color:var(--muted);">Send to bKash number</div>
+        <div class="dnum">01685-170845</div>
+        <div class="dnote">Account: Personal &bull; Use "Send Money"</div>
+        <div class="ref-tag">Reference: VLL</div>
+        <div class="field" style="margin-bottom:0;"><label>Your bKash transaction ID <span style="color:#F85149;">*</span></label><input type="text" id="i-tid-bkash" placeholder="e.g. AB1234567C"/><div id="i-tid-err" style="font-size:12px;color:#F85149;margin-top:4px;display:none;">Transaction ID আবশ্যক — payment ছাড়া confirm করা যাবে না</div></div>
+      </div>
+
+      <div class="method" id="im-nagad" onclick="selIndMethod('nagad')">
+        <div class="mradio"></div>
+        <div class="mlogo" style="background:#F57C00;">Ng</div>
+        <div><div class="mn">Nagad</div><div class="ms">Mobile banking</div></div>
+      </div>
+      <div class="dbox" id="id-nagad">
+        <div style="font-size:11px;color:var(--muted);">Send to Nagad number</div>
+        <div class="dnum">01685-170845</div>
+        <div class="dnote">Use "Send Money" in Nagad app</div>
+        <div class="ref-tag">Reference: VLL</div>
+        <div class="field" style="margin-bottom:0;"><label>Nagad transaction ID <span style="color:#F85149;">*</span></label><input type="text" id="i-tid-nagad" placeholder="Transaction ID"/><div id="i-tid-err-nagad" style="font-size:12px;color:#F85149;margin-top:4px;display:none;">Transaction ID আবশ্যক</div></div>
+      </div>
+
+      <div class="method" id="im-rocket" onclick="selIndMethod('rocket')">
+        <div class="mradio"></div>
+        <div class="mlogo" style="background:#6A1B9A;">Rk</div>
+        <div><div class="mn">Rocket</div><div class="ms">DBBL mobile banking</div></div>
+      </div>
+      <div class="dbox" id="id-rocket">
+        <div style="font-size:11px;color:var(--muted);">Send to Rocket number</div>
+        <div class="dnum">01685-170845</div>
+        <div class="dnote">Use "Send Money" in Rocket app</div>
+        <div class="ref-tag">Reference: VLL</div>
+        <div class="field" style="margin-bottom:0;"><label>Rocket transaction ID <span style="color:#F85149;">*</span></label><input type="text" id="i-tid-rocket" placeholder="Transaction ID"/><div id="i-tid-err-rocket" style="font-size:12px;color:#F85149;margin-top:4px;display:none;">Transaction ID আবশ্যক</div></div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="fbtn back" onclick="showRPage('rp-ind-details')">← Back</button>
+      <button class="fbtn primary" id="ind-confirm-btn" onclick="indConfirm()">
+        <span>Confirm registration</span>
+        <div class="spin" id="ind-spin"></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!-- PAGE: INDIVIDUAL — STEP 3 (confirmed)  -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="rpage" id="rp-ind-done">
+    <div class="fcard" style="text-align:center;padding:32px 24px;">
+      <div class="sring">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#3FB950" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">Registration complete!</div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:20px;">Confirmation email পাঠানো হবে <span id="ic-email" style="color:#58A6FF;font-weight:500;"></span> এ</div>
+      <div style="background:var(--dark3);border-radius:10px;padding:16px 18px;text-align:left;margin-bottom:16px;">
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Summary</div>
+        <div class="crow"><span>Name</span><span id="ic-name"></span></div>
+        <div class="crow"><span>Institution</span><span id="ic-org"></span></div>
+        <div class="crow"><span>Fee type</span><span id="ic-type"></span></div>
+        <div class="crow"><span>Amount</span><span id="ic-amount" style="color:#3FB950;"></span></div>
+        <div class="crow"><span>Paid via</span><span id="ic-method"></span></div>
+        <div class="crow"><span>Transaction ID</span><span id="ic-tid" style="font-family:monospace;font-size:12px;"></span></div>
+        <div class="crow"><span>Reference no.</span><span id="ic-ref" style="font-family:monospace;font-size:12px;"></span></div>
+      </div>
+      <div style="background:rgba(10,102,194,.1);border:1px solid rgba(10,102,194,.2);border-radius:8px;padding:10px 14px;font-size:12px;color:#58A6FF;margin-bottom:16px;">
+        Payment verification হতে 24 ঘণ্টা পর্যন্ত সময় লাগতে পারে।<br/>
+        প্রশ্নের জন্য: <a href="/cdn-cgi/l/email-protection#483e2d2b3c273a3a2d3b2d293a2b2024292a082f25292124662b2725"><span class="__cf_email__" data-cfemail="c3b5a6a0b7acb1b1a6b0a6a2b1a0abafa2a183a4aea2aaafeda0acae">[email&#160;protected]</span></a>
+      </div>
+    </div>
+    <div class="btn-row"><div></div><button class="fbtn primary" onclick="resetAll()">Register another →</button></div>
+  </div>
+
+  <!-- ════════════════════════════════════ -->
+  <!-- PAGE: GROUP — STEP 1 (details)       -->
+  <!-- ════════════════════════════════════ -->
+  <div class="rpage" id="rp-grp-details">
+    <div class="fcard">
+      <div class="step-bar">
+        <div class="st active"><div class="sd">1</div><span>Group details</span></div>
+        <div class="sl"></div>
+        <div class="st"><div class="sd">2</div><span>Payment</span></div>
+        <div class="sl"></div>
+        <div class="st"><div class="sd">3</div><span>Done</span></div>
+      </div>
+      <div class="fh">
+        <h3>Group registration</h3>
+        <p>৳1,250 total — 5 জনের জন্য (৳250 per person)</p>
+      </div>
+
+      <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;">Group lead (আপনি)</div>
+      <div class="row2">
+        <div class="field"><label>First name</label><input type="text" id="g-fname" placeholder="e.g. Farida"/><div class="err" id="ge-fname">Required</div></div>
+        <div class="field"><label>Last name</label><input type="text" id="g-lname" placeholder="e.g. Akter"/><div class="err" id="ge-lname">Required</div></div>
+      </div>
+      <div class="field"><label>Email address</label><input type="email" id="g-email" placeholder="you@university.edu"/><div class="err" id="ge-email">Valid email required</div></div>
+      <div class="row2">
+        <div class="field"><label>Phone number</label><input type="tel" id="g-phone" placeholder="01XXXXXXXXX"/><div class="err" id="ge-phone">Required</div></div>
+        <div class="field"><label>Institution / University</label><input type="text" id="g-org" placeholder="BUET, DU, NSU..."/><div class="err" id="ge-org">Required</div></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>Department</label><input type="text" id="g-dept" placeholder="e.g. CSE"/></div>
+        <div class="field"><label>Academic level</label>
+          <select id="g-level">
+            <option value="">Select</option>
+            <option>Undergraduate</option>
+            <option>Postgraduate (Masters)</option>
+            <option>PhD / Research</option>
+            <option>Faculty / Lecturer</option>
+            <option>Young Professional</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="border-top:0.5px solid var(--border);margin:16px 0;"></div>
+      <div style="font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px;">Other 4 members</div>
+      <div class="info-note">প্রতিটি member এর নাম ও valid email দেওয়া আবশ্যক — সব তথ্য ছাড়া payment page এ যাওয়া যাবে না। সবার পক্ষে group lead একসাথে ৳1,250 পাঠাবেন।</div>
+      <div class="mlist" id="grp-members-list"></div>
+
+      <div class="field" style="margin-top:8px;"><label>Questions / special requirements</label><textarea id="g-notes" placeholder="Optional"></textarea></div>
+    </div>
+    <div class="btn-row">
+      <button class="fbtn back" onclick="showRPage('rp-choose')">← Back</button>
+      <button class="fbtn primary" onclick="grpGoToPayment()">Continue to payment →</button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════ -->
+  <!-- PAGE: GROUP — STEP 2 (payment)       -->
+  <!-- ════════════════════════════════════ -->
+  <div class="rpage" id="rp-grp-payment">
+    <div class="fcard">
+      <div class="step-bar">
+        <div class="st done"><div class="sd">✓</div><span>Group details</span></div>
+        <div class="sl"></div>
+        <div class="st active"><div class="sd">2</div><span>Payment</span></div>
+        <div class="sl"></div>
+        <div class="st"><div class="sd">3</div><span>Done</span></div>
+      </div>
+      <div class="fh">
+        <h3>Group payment</h3>
+        <p id="grp-pay-subname"></p>
+      </div>
+
+      <div class="amt-box">
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;">Total amount due</div>
+        <div class="amt-main">৳1,250</div>
+        <div style="border-top:0.5px solid rgba(255,255,255,.1);padding-top:10px;">
+          <div class="ar"><span>Rate per person</span><span>৳250</span></div>
+          <div class="ar"><span>5 members</span><span>× ৳250</span></div>
+          <div class="ar tot"><span>Total (one payment)</span><span>৳1,250</span></div>
+        </div>
+      </div>
+
+      <div class="sec-lbl">Select payment method</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px;background:rgba(248,81,73,.08);border:0.5px solid rgba(248,81,73,.2);border-radius:8px;padding:10px 14px;">⚠️ ৳1,250 payment করার পর Transaction ID ছাড়া group registration confirm হবে না।</div>
+      <div class="method" id="gm-bkash" onclick="selGrpMethod('bkash')">
+        <div class="mradio"></div>
+        <div class="mlogo" style="background:#D81B60;">bK</div>
+        <div><div class="mn">bKash</div><div class="ms">Mobile banking</div></div>
+        <span style="margin-left:auto;font-size:10px;padding:2px 8px;border-radius:20px;background:rgba(10,102,194,.2);color:#58A6FF;font-weight:700;">Popular</span>
+      </div>
+      <div class="dbox" id="gd-bkash">
+        <div style="font-size:11px;color:var(--muted);">Send ৳1,250 to bKash number</div>
+        <div class="dnum">01685-170845</div>
+        <div class="dnote">Account: Personal &bull; Use "Send Money" &bull; include group lead name</div>
+        <div class="ref-tag">Reference: VLL</div>
+        <div class="field" style="margin-bottom:0;"><label>bKash transaction ID <span style="color:#F85149;">*</span></label><input type="text" id="g-tid-bkash" placeholder="e.g. AB1234567C"/><div id="g-tid-err" style="font-size:12px;color:#F85149;margin-top:4px;display:none;">Transaction ID আবশ্যক — payment ছাড়া confirm করা যাবে না</div></div>
+      </div>
+
+      <div class="method" id="gm-nagad" onclick="selGrpMethod('nagad')">
+        <div class="mradio"></div>
+        <div class="mlogo" style="background:#F57C00;">Ng</div>
+        <div><div class="mn">Nagad</div><div class="ms">Mobile banking</div></div>
+      </div>
+      <div class="dbox" id="gd-nagad">
+        <div style="font-size:11px;color:var(--muted);">Send ৳1,250 to Nagad number</div>
+        <div class="dnum">01685-170845</div>
+        <div class="dnote">Use "Send Money" &bull; include group lead name in remarks</div>
+        <div class="ref-tag">Reference: VLL</div>
+        <div class="field" style="margin-bottom:0;"><label>Nagad transaction ID <span style="color:#F85149;">*</span></label><input type="text" id="g-tid-nagad" placeholder="Transaction ID"/><div id="g-tid-err-nagad" style="font-size:12px;color:#F85149;margin-top:4px;display:none;">Transaction ID আবশ্যক</div></div>
+      </div>
+
+      <div class="method" id="gm-rocket" onclick="selGrpMethod('rocket')">
+        <div class="mradio"></div>
+        <div class="mlogo" style="background:#6A1B9A;">Rk</div>
+        <div><div class="mn">Rocket</div><div class="ms">DBBL mobile banking</div></div>
+      </div>
+      <div class="dbox" id="gd-rocket">
+        <div style="font-size:11px;color:var(--muted);">Send ৳1,250 to Rocket number</div>
+        <div class="dnum">01685-170845</div>
+        <div class="dnote">Use "Send Money" &bull; include group lead name in remarks</div>
+        <div class="ref-tag">Reference: VLL</div>
+        <div class="field" style="margin-bottom:0;"><label>Rocket transaction ID <span style="color:#F85149;">*</span></label><input type="text" id="g-tid-rocket" placeholder="Transaction ID"/><div id="g-tid-err-rocket" style="font-size:12px;color:#F85149;margin-top:4px;display:none;">Transaction ID আবশ্যক</div></div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="fbtn back" onclick="showRPage('rp-grp-details')">← Back</button>
+      <button class="fbtn primary" id="grp-confirm-btn" onclick="grpConfirm()">
+        <span>Confirm group registration</span>
+        <div class="spin" id="grp-spin"></div>
+      </button>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════ -->
+  <!-- PAGE: GROUP — STEP 3 (confirmed)     -->
+  <!-- ════════════════════════════════════ -->
+  <div class="rpage" id="rp-grp-done">
+    <div class="fcard" style="text-align:center;padding:32px 24px;">
+      <div class="sring">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#3FB950" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:6px;">Group registration complete!</div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:20px;">Confirmation email পাঠানো হবে <span id="gc-email" style="color:#58A6FF;font-weight:500;"></span> এ</div>
+      <div style="background:var(--dark3);border-radius:10px;padding:16px 18px;text-align:left;margin-bottom:16px;">
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;">Summary</div>
+        <div class="crow"><span>Group lead</span><span id="gc-name"></span></div>
+        <div class="crow"><span>Institution</span><span id="gc-org"></span></div>
+        <div class="crow"><span>Members</span><span>5 people</span></div>
+        <div class="crow"><span>Total amount</span><span id="gc-amount" style="color:#3FB950;">৳1,250</span></div>
+        <div class="crow"><span>Paid via</span><span id="gc-method"></span></div>
+        <div class="crow"><span>Transaction ID</span><span id="gc-tid" style="font-family:monospace;font-size:12px;"></span></div>
+        <div class="crow"><span>Reference no.</span><span id="gc-ref" style="font-family:monospace;font-size:12px;"></span></div>
+      </div>
+      <div style="background:rgba(10,102,194,.1);border:1px solid rgba(10,102,194,.2);border-radius:8px;padding:10px 14px;font-size:12px;color:#58A6FF;margin-bottom:16px;">
+        Payment verification হতে 24 ঘণ্টা পর্যন্ত সময় লাগতে পারে।<br/>
+        প্রশ্নের জন্য: <a href="/cdn-cgi/l/email-protection#17617274637865657264727665747f7b767557707a767e7b3974787a"><span class="__cf_email__" data-cfemail="99effcfaedf6ebebfceafcf8ebfaf1f5f8fbd9fef4f8f0f5b7faf6f4">[email&#160;protected]</span></a>
+      </div>
+    </div>
+    <div class="btn-row"><div></div><button class="fbtn primary" onclick="resetAll()">Register another →</button></div>
+  </div>
+
+</div><!-- end reg-section -->
+
+<!-- FOOTER -->
+<footer>
+  <p style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px;">Vector Research Lab</p>
+  <p><a href="/cdn-cgi/l/email-protection#483e2d2b3c273a3a2d3b2d293a2b2024292a082f25292124662b2725"><span class="__cf_email__" data-cfemail="1e687b7d6a716c6c7b6d7b7f6c7d76727f7c5e79737f7772307d7173">[email&#160;protected]</span></a></p>
+  <p style="margin-top:8px;">© 2026 Vector Research Lab. All rights reserved.</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ══════════════════════════════════════════════════════════════════════════════
+   CONFIGURATION INSTRUCTIONS
+   ══════════════════════════════════════════════════════════════════════════════
+   
+   📋 SETUP STEPS (5 minutes):
+   
+   1. Go to DATABASE_SETUP_GUIDE.md in the project root for detailed instructions
+      
+   2. Choose your database option:
+      ✅ Option 1: Google Sheets + Apps Script (RECOMMENDED - Free & Easy)
+      ⚡ Option 2: Firebase Firestore  
+      🔧 Option 3: Supabase PostgreSQL
+      💻 Option 4: Custom Node.js Backend
+   
+   3. Follow the detailed setup guide in DATABASE_SETUP_GUIDE.md
+   
+   4. Once deployed, copy your backend URL and paste it below:
+   
+   📌 PASTE YOUR URL HERE (replace the placeholder):
+   
+*/
+// ── CONFIG ──────────────────────────────────────────
+const SHEETS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+const WORKSHOP_DATE = new Date('2026-04-03T21:00:00+06:00'); // April 3, 9PM Bangladesh
+const EARLY_BIRD_FEE = 300;
+const REGULAR_FEE = 500;
+const GROUP_FEE = 1250;
+const METHOD_LABELS = { bkash:'bKash', nagad:'Nagad', rocket:'Rocket' };
+
+// ── DATE LOGIC ──────────────────────────────────────
+function getIndFee() {
+  const now = new Date();
+  const msLeft = WORKSHOP_DATE - now;
+  const hoursLeft = msLeft / (1000 * 60 * 60);
+  return hoursLeft > 48 ? EARLY_BIRD_FEE : REGULAR_FEE;
+}
+function getFeeLabel() {
+  return getIndFee() === EARLY_BIRD_FEE ? 'Early Bird' : 'Regular';
+}
+
+// ── UPDATE HERO PRICE DISPLAY ───────────────────────
+function updateHeroPricing() {
+  const fee = getIndFee();
+  const isEarly = fee === EARLY_BIRD_FEE;
+  document.getElementById('hero-price-amt').textContent = '৳' + fee;
+  document.getElementById('hero-price-label').textContent = isEarly ? 'Early Bird fee' : 'Regular fee';
+  document.getElementById('hero-price-strike').textContent = isEarly ? '৳500' : '';
+  document.getElementById('hero-price-note').textContent = isEarly ? 'More than 48 hrs to go!' : 'Workshop এর 48 ঘণ্টার মধ্যে';
+  document.getElementById('ind-price-chooser').textContent = '৳' + fee;
+  document.getElementById('ind-badge-chooser').textContent = getFeeLabel();
+  document.getElementById('ind-badge-chooser').className = 'cc-badge ' + (isEarly ? 'badge-gold' : 'badge-blue');
+  const noteEl = document.getElementById('ind-fee-note');
+  if (noteEl) noteEl.textContent = isEarly ? 'Early Bird rate — ৳300 (৳500 এর আগে register করুন!)' : 'Regular rate — ৳500 (Workshop এর 48 ঘণ্টার মধ্যে)';
+}
+updateHeroPricing();
+
+// init group members list
+function initGroupMembers() {
+  const list = document.getElementById('grp-members-list');
+  list.innerHTML = '';
+  for (let i = 2; i <= 5; i++) {
+    const d = document.createElement('div');
+    d.className = 'mrow';
+    d.innerHTML = `<div class="mnum">${i}</div>
+      <input type="text" placeholder="Full name" style="flex:1.1;padding:8px 10px;background:var(--dark3);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:var(--text);font-size:13px;font-family:'DM Sans',sans-serif;"/>
+      <input type="email" placeholder="Email" style="flex:1.4;padding:8px 10px;background:var(--dark3);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:var(--text);font-size:13px;font-family:'DM Sans',sans-serif;"/>`;
+    list.appendChild(d);
+  }
+}
+initGroupMembers();
+
+// ── PAGE NAVIGATION ─────────────────────────────────
+function showRPage(id) {
+  document.querySelectorAll('.rpage').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('reg-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function goToReg(type) {
+  updateHeroPricing();
+  if (type === 'individual') showRPage('rp-ind-details');
+  else showRPage('rp-grp-details');
+}
+
+// ── VALIDATION ──────────────────────────────────────
+function validate(fields, prefix) {
+  let ok = true;
+  fields.forEach(id => {
+    const el = document.getElementById(prefix + id);
+    const err = document.getElementById(prefix.replace('-','e-') + id);
+    if (!err) return;
+    if (!el || !el.value.trim()) { err.style.display = 'block'; ok = false; }
+    else err.style.display = 'none';
+  });
+  return ok;
+}
+function validateEmail(id, errId) {
+  const v = document.getElementById(id).value.trim();
+  const e = document.getElementById(errId);
+  if (!v || !v.includes('@')) { e.style.display = 'block'; return false; }
+  e.style.display = 'none'; return true;
+}
+
+// ── INDIVIDUAL FLOW ─────────────────────────────────
+let indMethod = null;
+function indGoToPayment() {
+  const ok1 = validate(['fname','lname','phone','org'], 'i-');
+  const ok2 = validateEmail('i-email', 'ie-email');
+  if (!ok1 || !ok2) return;
+  const fee = getIndFee();
+  const fStr = '৳' + fee;
+  document.getElementById('ind-pay-subname').textContent = document.getElementById('i-fname').value.trim() + ' ' + document.getElementById('i-lname').value.trim();
+  document.getElementById('ind-pay-amt').textContent = fStr;
+  document.getElementById('ind-pay-fee').textContent = fStr;
+  document.getElementById('ind-pay-total').textContent = fStr;
+  document.getElementById('ind-pay-type-label').textContent = getFeeLabel() + ' registration fee';
+  showRPage('rp-ind-payment');
+}
+function selIndMethod(m) {
+  indMethod = m;
+  ['bkash','nagad','rocket'].forEach(k => {
+    document.getElementById('im-' + k).classList.toggle('selected', k === m);
+    document.getElementById('id-' + k).classList.toggle('vis', k === m);
+  });
+}
+async function indConfirm() {
+  // Validate: method must be selected
+  if (!indMethod) {
+    showToast('একটি payment method বেছে নিন');
+    return;
+  }
+  // Validate: transaction ID must be filled
+  const tidInput = document.getElementById('i-tid-' + indMethod);
+  const tidErr = document.getElementById('i-tid-err');
+  if (!tidInput || !tidInput.value.trim()) {
+    tidErr.style.display = 'block';
+    tidInput && tidInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  tidErr.style.display = 'none';
+
+  const fname = document.getElementById('i-fname').value.trim();
+  const lname = document.getElementById('i-lname').value.trim();
+  const email = document.getElementById('i-email').value.trim();
+  const phone = document.getElementById('i-phone').value.trim();
+  const org = document.getElementById('i-org').value.trim();
+  const dept = document.getElementById('i-dept').value.trim();
+  const level = document.getElementById('i-level').value;
+  const notes = document.getElementById('i-notes').value.trim();
+  const tid = tidInput.value.trim();
+  const ref = 'VRL-' + Math.random().toString(36).substring(2,8).toUpperCase();
+  const fee = getIndFee();
+
+  document.getElementById('ic-name').textContent = fname + ' ' + lname;
+  document.getElementById('ic-email').textContent = email;
+  document.getElementById('ic-org').textContent = org || '—';
+  document.getElementById('ic-type').textContent = getFeeLabel();
+  document.getElementById('ic-amount').textContent = '৳' + fee;
+  document.getElementById('ic-method').textContent = indMethod ? METHOD_LABELS[indMethod] : '—';
+  document.getElementById('ic-tid').textContent = tid || '—';
+  document.getElementById('ic-ref').textContent = ref;
+
+  const btn = document.getElementById('ind-confirm-btn');
+  const spin = document.getElementById('ind-spin');
+  btn.disabled = true; spin.style.display = 'block';
+
+  const payload = {
+    timestamp: new Date().toISOString(),
+    name: fname + ' ' + lname, email, phone,
+    institution: org, department: dept, level,
+    workshop: 'LinkedIn Mastery Workshop 2026',
+    registrationType: getFeeLabel() + ' (Individual)',
+    regType: getFeeLabel() + ' (Individual)',
+    amount: fee,
+    paymentMethod: indMethod ? METHOD_LABELS[indMethod] : '',
+    transactionId: tid, reference: ref, notes, groupMembers: ''
+  };
+  try {
+    await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', body: JSON.stringify(payload) });
+  } catch(e) { console.warn(e); }
+
+  btn.disabled = false; spin.style.display = 'none';
+  showRPage('rp-ind-done');
+}
+
+// ── GROUP FLOW ───────────────────────────────────────
+let grpMethod = null;
+function grpGoToPayment() {
+  const ok1 = validate(['fname','lname','phone','org'], 'g-');
+  const ok2 = validateEmail('g-email', 'ge-email');
+  if (!ok1 || !ok2) return;
+
+  // Validate all 5 member rows — name AND email required
+  const rows = document.querySelectorAll('#grp-members-list .mrow');
+  let memberOk = true;
+  rows.forEach((row, idx) => {
+    const inputs = row.querySelectorAll('input');
+    const nameEl = inputs[0]; const emailEl = inputs[1];
+    let rowErr = row.querySelector('.mrow-err');
+    if (!rowErr) {
+      rowErr = document.createElement('div');
+      rowErr.className = 'mrow-err';
+      rowErr.style.cssText = 'font-size:11px;color:#F85149;margin-top:3px;margin-left:30px;';
+      row.parentNode.insertBefore(rowErr, row.nextSibling);
+    }
+    const nameOk = nameEl.value.trim().length > 0;
+    const emailOk = emailEl.value.trim().includes('@');
+    if (!nameOk || !emailOk) {
+      rowErr.textContent = 'Member ' + (idx+2) + ': name ও valid email দেওয়া আবশ্যক';
+      memberOk = false;
+    } else {
+      rowErr.textContent = '';
+    }
+  });
+  if (!memberOk) return;
+
+  document.getElementById('grp-pay-subname').textContent = 'Group lead: ' + document.getElementById('g-fname').value.trim() + ' ' + document.getElementById('g-lname').value.trim() + ' — 5 members';
+  showRPage('rp-grp-payment');
+}
+function selGrpMethod(m) {
+  grpMethod = m;
+  ['bkash','nagad','rocket'].forEach(k => {
+    document.getElementById('gm-' + k).classList.toggle('selected', k === m);
+    document.getElementById('gd-' + k).classList.toggle('vis', k === m);
+  });
+}
+async function grpConfirm() {
+  // Validate: method must be selected
+  if (!grpMethod) {
+    showToast('একটি payment method বেছে নিন');
+    return;
+  }
+  // Validate: transaction ID must be filled
+  const tidInput = document.getElementById('g-tid-' + grpMethod);
+  const tidErr = document.getElementById('g-tid-err');
+  if (!tidInput || !tidInput.value.trim()) {
+    tidErr.style.display = 'block';
+    tidInput && tidInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  tidErr.style.display = 'none';
+
+  const fname = document.getElementById('g-fname').value.trim();
+  const lname = document.getElementById('g-lname').value.trim();
+  const email = document.getElementById('g-email').value.trim();
+  const phone = document.getElementById('g-phone').value.trim();
+  const org = document.getElementById('g-org').value.trim();
+  const dept = document.getElementById('g-dept').value.trim();
+  const level = document.getElementById('g-level').value;
+  const notes = document.getElementById('g-notes').value.trim();
+  const tid = tidInput.value.trim();
+  const ref = 'VRL-' + Math.random().toString(36).substring(2,8).toUpperCase();
+
+  const memberRows = document.querySelectorAll('#grp-members-list .mrow');
+  const members = Array.from(memberRows).map(r => {
+    const ins = r.querySelectorAll('input');
+    return ins[0].value.trim() + ' (' + ins[1].value.trim() + ')';
+  }).join(' | ');
+
+  document.getElementById('gc-name').textContent = fname + ' ' + lname;
+  document.getElementById('gc-email').textContent = email;
+  document.getElementById('gc-org').textContent = org || '—';
+  document.getElementById('gc-method').textContent = grpMethod ? METHOD_LABELS[grpMethod] : '—';
+  document.getElementById('gc-tid').textContent = tid || '—';
+  document.getElementById('gc-ref').textContent = ref;
+
+  const btn = document.getElementById('grp-confirm-btn');
+  const spin = document.getElementById('grp-spin');
+  btn.disabled = true; spin.style.display = 'block';
+
+  const payload = {
+    timestamp: new Date().toISOString(),
+    name: fname + ' ' + lname, email, phone,
+    institution: org, department: dept, level,
+    workshop: 'LinkedIn Mastery Workshop 2026',
+    registrationType: 'Group (5 people)',
+    regType: 'Group (5 people)',
+    amount: GROUP_FEE,
+    paymentMethod: grpMethod ? METHOD_LABELS[grpMethod] : '',
+    transactionId: tid, reference: ref, notes,
+    groupMembers: members
+  };
+  try {
+    await fetch(SHEETS_URL, { method:'POST', mode:'no-cors', body: JSON.stringify(payload) });
+  } catch(e) { console.warn(e); }
+
+  btn.disabled = false; spin.style.display = 'none';
+  showRPage('rp-grp-done');
+}
+
+// ── RESET ────────────────────────────────────────────
+function resetAll() {
+  document.querySelectorAll('#reg-section input, #reg-section textarea, #reg-section select')
+    .forEach(el => { el.value = ''; });
+  indMethod = null; grpMethod = null;
+  ['bkash','nagad','rocket'].forEach(k => {
+    ['im-','id-','gm-','gd-'].forEach(p => {
+      const el = document.getElementById(p + k);
+      if (el) { el.classList.remove('selected'); el.classList.remove('vis'); }
+    });
+  });
+  initGroupMembers();
+  updateHeroPricing();
+  showRPage('rp-choose');
+}
+</script>
+
+<!--
+╔══════════════════════════════════════════════════════╗
+║         GOOGLE SHEETS SETUP (5 minutes)              ║
+╠══════════════════════════════════════════════════════╣
+║ 1. sheets.google.com → New sheet                     ║
+║    Row 1 headers:                                    ║
+║    Timestamp | Name | Email | Phone | Institution |  ║
+║    Department | Level | Reg Type | Amount |          ║
+║    Payment Method | Transaction ID | Reference |     ║
+║    Notes | Group Members                             ║
+║                                                      ║
+║ 2. Extensions → Apps Script → paste:                 ║
+║                                                      ║
+║  function doPost(e) {                                ║
+║    try {                                             ║
+║      const s = SpreadsheetApp                        ║
+║        .getActiveSpreadsheet().getActiveSheet();     ║
+║      const d = JSON.parse(e.postData.contents);      ║
+║      s.appendRow([d.timestamp,d.name,d.email,        ║
+║        d.phone,d.institution,d.department,d.level,   ║
+║        d.regType,d.amount,d.paymentMethod,           ║
+║        d.transactionId,d.reference,                  ║
+║        d.notes,d.groupMembers]);                     ║
+║    } catch(err){Logger.log(err);}                    ║
+║    return ContentService                             ║
+║      .createTextOutput('ok')                         ║
+║      .setMimeType(ContentService.MimeType.TEXT);     ║
+║  }                                                   ║
+║  function doGet(e){                                  ║
+║    return ContentService                             ║
+║      .createTextOutput('ok')                         ║
+║      .setMimeType(ContentService.MimeType.TEXT);     ║
+║  }                                                   ║
+║                                                      ║
+║ 3. Deploy → New deployment → Web App                 ║
+║    Execute as: Me                                    ║
+║    Who has access: Anyone                            ║
