@@ -25,9 +25,12 @@ Timestamp | Name | Email | Phone | Institution | Department | Level | Workshop |
 2. Replace the code with:
 
 ```javascript
+const SHEET_ID = '14XjqWwwlXenX7g5x6jFrnPm80uWExK4ySKM46Fxzb8A';
+
 function doPost(e) {
   try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    const ss = SpreadsheetApp.openById(SHEET_ID);
+    const sheet = ss.getActiveSheet();
     const body = (e && e.postData && e.postData.contents) ? e.postData.contents : '{}';
     const data = JSON.parse(body);
     
