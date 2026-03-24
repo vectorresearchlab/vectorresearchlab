@@ -330,7 +330,8 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--gray50);color:v
 
 <script>
 // ── CONFIG ──
-const SHEETS_URL = 'YOUR_REVIEW_GOOGLE_APPS_SCRIPT_URL_HERE';
+const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzO5dLSDbEd6B6zxRPOF-r6d5Z9JIxODbyTYt1q0OX54CBNItwnCxI9Axx4PmiPsYw/exec';
+const WORKSHOP_NAME = 'Kaggle Notebook to Published Paper — April 10, 2026';
 
 // ── STATE ──
 let rating = 0;
@@ -473,14 +474,16 @@ async function submitReview() {
   const payload = {
     timestamp: new Date().toISOString(),
     name: fname + ' ' + lname,
-    email, whatsapp: '+880' + wa,
-    institution: org, level,
+    email: email.toLowerCase(),
+    whatsapp: '+880' + wa,
+    institution: org || '—',
+    level: level || '—',
     rating: rating + ' / 5 ' + starStr,
     whatLearned: learned,
     recommend: recLabels[recommend],
     suggestions: suggestions || '—',
     publicPermission: permissionGranted ? 'Yes' : 'No',
-    workshop: 'Kaggle Notebook to Published Paper — April 10, 2026'
+    workshop: WORKSHOP_NAME
   };
 
   try {
@@ -503,45 +506,12 @@ function showToast(msg) {
 </script>
 
 <!--
-╔══════════════════════════════════════════════════════════╗
-║       GOOGLE SHEETS SETUP FOR REVIEWS (5 min)            ║
-╠══════════════════════════════════════════════════════════╣
-║ 1. Create a NEW separate Google Sheet for reviews        ║
-║    Row 1 headers:                                        ║
-║    Timestamp | Name | Email | WhatsApp | Institution |   ║
-║    Level | Rating | What Learned | Recommend |           ║
-║    Suggestions | Public Permission | Workshop            ║
-║                                                          ║
-║ 2. Extensions → Apps Script → paste:                     ║
-║                                                          ║
-║  function doPost(e) {                                    ║
-║    try {                                                 ║
-║      const s = SpreadsheetApp                            ║
-║        .getActiveSpreadsheet().getActiveSheet();         ║
-║      const d = JSON.parse(e.postData.contents);          ║
-║      s.appendRow([d.timestamp, d.name, d.email,          ║
-║        d.whatsapp, d.institution, d.level,               ║
-║        d.rating, d.whatLearned, d.recommend,             ║
-║        d.suggestions, d.publicPermission,                ║
-║        d.workshop]);                                     ║
-║    } catch(err){Logger.log(err);}                        ║
-║    return ContentService                                 ║
-║      .createTextOutput('ok')                             ║
-║      .setMimeType(ContentService.MimeType.TEXT);         ║
-║  }                                                       ║
-║  function doGet(e){                                      ║
-║    return ContentService                                 ║
-║      .createTextOutput('ok')                             ║
-║      .setMimeType(ContentService.MimeType.TEXT);         ║
-║  }                                                       ║
-║                                                          ║
-║ 3. Deploy → New deployment → Web App                     ║
-║    Execute as: Me / Who has access: Anyone               ║
-║    → Copy URL                                            ║
-║                                                          ║
-║ 4. Replace YOUR_REVIEW_GOOGLE_APPS_SCRIPT_URL_HERE       ║
-║    with your URL (line ~260 in this file)                ║
-╚══════════════════════════════════════════════════════════╝
+Review payload fields sent to Apps Script:
+timestamp, name, email, whatsapp, institution, level,
+rating, whatLearned, recommend, suggestions, publicPermission, workshop
+
+Use the script in workshop_review_app_script.gs and paste its deployed /exec URL
+into SHEETS_URL above.
 -->
 
 </body>
