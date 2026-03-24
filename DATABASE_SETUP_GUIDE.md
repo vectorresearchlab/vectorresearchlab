@@ -31,8 +31,22 @@ function doPost(e) {
   try {
     const ss = SpreadsheetApp.openById(SHEET_ID);
     const sheet = ss.getActiveSheet();
-    const body = (e && e.postData && e.postData.contents) ? e.postData.contents : '{}';
-    const data = JSON.parse(body);
+    
+    // Parse JSON body from POST request
+    let data = {};
+    if (e && e.postData && e.postData.contents) {
+      try {
+        data = JSON.parse(e.postData.contents);
+      } catch (parseErr) {
+        Logger.log('JSON Parse Error: ' + parseErr);
+        return ContentService
+          .createTextOutput(JSON.stringify({success: false, error: 'Invalid JSON'}))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+    
+    Logger.log('📥 Received POST request');
+    Logger.log('Data: ' + JSON.stringify(data));
     
     sheet.appendRow([
       data.timestamp || new Date().toISOString(),
@@ -52,11 +66,13 @@ function doPost(e) {
       'Pending'
     ]);
     
+    Logger.log('✅ Row appended. Total rows: ' + sheet.getLastRow());
+    
     return ContentService
       .createTextOutput(JSON.stringify({success: true, id: sheet.getLastRow()}))
       .setMimeType(ContentService.MimeType.JSON);
   } catch(err) {
-    Logger.log(err);
+    Logger.log('❌ Error: ' + err);
     return ContentService
       .createTextOutput(JSON.stringify({success: false, error: err.toString()}))
       .setMimeType(ContentService.MimeType.JSON);

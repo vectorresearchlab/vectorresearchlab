@@ -858,12 +858,18 @@ async function indConfirm() {
     transactionId: tid, reference: ref, notes, groupMembers: ''
   };
   try {
-    await fetch(SHEETS_URL, { 
+    console.log('📤 Sending individual payload:', payload);
+    const response = await fetch(SHEETS_URL, { 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload) 
     });
-  } catch(e) { console.warn(e); }
+    console.log('✅ Response status:', response.status);
+    const result = await response.json();
+    console.log('📥 Server response:', result);
+  } catch(e) { 
+    console.error('❌ Fetch error:', e); 
+  }
 
   btn.disabled = false; spin.style.display = 'none';
   showRPage('rp-ind-done');
@@ -967,12 +973,18 @@ async function grpConfirm() {
     groupMembers: members
   };
   try {
-    await fetch(SHEETS_URL, { 
+    console.log('📤 Sending group payload:', payload);
+    const response = await fetch(SHEETS_URL, { 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload) 
     });
-  } catch(e) { console.warn(e); }
+    console.log('✅ Response status:', response.status);
+    const result = await response.json();
+    console.log('📥 Server response:', result);
+  } catch(e) { 
+    console.error('❌ Fetch error:', e); 
+  }
 
   btn.disabled = false; spin.style.display = 'none';
   showRPage('rp-grp-done');
