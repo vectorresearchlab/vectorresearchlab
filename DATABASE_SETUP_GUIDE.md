@@ -32,22 +32,24 @@ function doPost(e) {
     const ss = SpreadsheetApp.openById(SHEET_ID);
     const sheet = ss.getActiveSheet();
     
+    Logger.log('📥 Received POST request');
+    Logger.log('Request: ' + JSON.stringify(e));
+    
     // Parse JSON body from POST request
     let data = {};
     if (e && e.postData && e.postData.contents) {
       try {
-        data = JSON.parse(e.postData.contents);
+        const body = e.postData.contents;
+        Logger.log('Raw body: ' + body);
+        data = JSON.parse(body);
+        Logger.log('Parsed data: ' + JSON.stringify(data));
       } catch (parseErr) {
         Logger.log('JSON Parse Error: ' + parseErr);
-        return ContentService
-          .createTextOutput(JSON.stringify({success: false, error: 'Invalid JSON'}))
-          .setMimeType(ContentService.MimeType.JSON);
+        return createResponse({success: false, error: 'Invalid JSON'});
       }
     }
     
-    Logger.log('📥 Received POST request');
-    Logger.log('Data: ' + JSON.stringify(data));
-    
+    // Append row to sheet
     sheet.appendRow([
       data.timestamp || new Date().toISOString(),
       data.name || '',
@@ -68,21 +70,28 @@ function doPost(e) {
     
     Logger.log('✅ Row appended. Total rows: ' + sheet.getLastRow());
     
-    return ContentService
-      .createTextOutput(JSON.stringify({success: true, id: sheet.getLastRow()}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return createResponse({success: true, id: sheet.getLastRow()});
   } catch(err) {
     Logger.log('❌ Error: ' + err);
-    return ContentService
-      .createTextOutput(JSON.stringify({success: false, error: err.toString()}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return createResponse({success: false, error: err.toString()});
   }
 }
 
+function doOptions(e) {
+  return createResponse({status: 'ok'});
+}
+
 function doGet(e) {
+  return createResponse({status: 'ok'});
+}
+
+function createResponse(data) {
   return ContentService
-    .createTextOutput(JSON.stringify({status: 'ok'}))
-    .setMimeType(ContentService.MimeType.JSON);
+    .createTextOutput(JSON.stringify(data))
+    .setMimeType(ContentService.MimeType.JSON)
+    .addHeader('Access-Control-Allow-Origin', '*')
+    .addHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
+    .addHeader('Access-Control-Allow-Headers', '*');
 }
 ```
 

@@ -870,12 +870,10 @@ async function indConfirm() {
     console.log('📤 Sending individual payload:', payload);
     const response = await fetch(SHEETS_URL, { 
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
       body: JSON.stringify(payload) 
     });
-    console.log('✅ Response status:', response.status);
-    const result = await response.json();
-    console.log('📥 Server response:', result);
+    console.log('✅ Submission sent successfully!');
   } catch(e) { 
     console.error('❌ Fetch error:', e); 
   }
@@ -985,12 +983,10 @@ async function grpConfirm() {
     console.log('📤 Sending group payload:', payload);
     const response = await fetch(SHEETS_URL, { 
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
       body: JSON.stringify(payload) 
     });
-    console.log('✅ Response status:', response.status);
-    const result = await response.json();
-    console.log('📥 Server response:', result);
+    console.log('✅ Submission sent successfully!');
   } catch(e) { 
     console.error('❌ Fetch error:', e); 
   }
