@@ -41,6 +41,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:16px 3
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 0%,rgba(10,102,194,.18) 0%,transparent 70%),radial-gradient(ellipse 40% 35% at 80% 85%,rgba(245,166,35,.07) 0%,transparent 60%);pointer-events:none;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%);pointer-events:none;}
 .org-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.3);border-radius:100px;padding:6px 16px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#a5b4fc;margin-bottom:24px;}
+.org-badge-link{text-decoration:none;color:inherit;}
 .org-badge-dot{width:6px;height:6px;border-radius:50%;background:#a5b4fc;animation:glow 2s ease infinite;}
 @keyframes glow{0%,100%{opacity:.5}50%{opacity:1}}
 .hero h1{font-size:clamp(34px,6vw,68px);font-weight:800;line-height:1.05;letter-spacing:-.02em;margin-bottom:20px;max-width:780px;}
@@ -252,7 +253,7 @@ footer a{color:#a5b4fc;text-decoration:none;}
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
-  <div class="org-badge fu"><div class="org-badge-dot"></div>Vector Research Lab</div>
+  <a class="org-badge org-badge-link fu" href="landing.html#home" aria-label="Go to homepage"><div class="org-badge-dot"></div>VECTOR Research Lab</a>
   <h1 class="fu d1">From <em>Kaggle</em> to<br/><span class="acc">Published</span> Paper</h1>
   <p class="hero-sub fu d2">আপনার data analysis project কে academic paper এ রূপান্তর করুন — 6-module live workshop এ। Hands-on, practical, result-driven।</p>
   <div class="hero-meta fu d3">
